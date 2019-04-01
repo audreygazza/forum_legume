@@ -26,6 +26,11 @@ class Discussion
      */
     private $lastMsg;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Theme")
+     */
+    private $theme;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Discussion
     public function setLastMsg(\DateTimeInterface $lastMsg): self
     {
         $this->lastMsg = $lastMsg;
+
+        return $this;
+    }
+
+    public function getTheme(): ?Theme
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?Theme $theme): self
+    {
+        $this->theme = $theme;
 
         return $this;
     }
