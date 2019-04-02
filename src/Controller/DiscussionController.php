@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Discussion;
 use App\Form\DiscussionType;
 use App\Repository\DiscussionRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -82,6 +83,7 @@ class DiscussionController extends AbstractController
 
     /**
      * @Route("/{id}", name="discussion_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Discussion $discussion): Response
     {

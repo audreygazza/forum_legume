@@ -26,5 +26,8 @@
 
     <a href="{{ path('discussion_edit', {'id': discussion.id}) }}">edit</a>
 
+    {% if is_granted('ROLE_ADMIN') %}
     {{ include('discussion/_delete_form.html.twig') }}
+    {% endif %}
+
 {% endblock %}
