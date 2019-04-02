@@ -9,3 +9,10 @@ discussion:
 
 Update: Actualiser
 Save: Sauvegarder
+
+message:
+  title: Titre
+  content: Contenu
+  created_at: Créé le
+  user: Utilisateur
+  discussion: Topic
