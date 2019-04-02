@@ -1,0 +1,11 @@
+theme:
+  name: nom
+  description: description
+
+discussion:
+  title: Titre
+  lastMsg: Dernier message
+  theme: Theme
+
+Update: Actualiser
+Save: Sauvegarder
