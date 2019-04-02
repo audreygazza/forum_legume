@@ -31,6 +31,11 @@ class Discussion
      */
     private $theme;
 
+    public function __construct()
+    {
+      $this->lastMsg= new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

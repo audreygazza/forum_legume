@@ -22,7 +22,7 @@ class Message
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $content;
 
@@ -40,6 +40,11 @@ class Message
      * @ORM\ManyToOne(targetEntity="App\Entity\Discussion")
      */
     private $discussion;
+
+    public function __construct()
+    {
+      $this->created_at= new \DateTime();
+    }
 
     public function getId(): ?int
     {
