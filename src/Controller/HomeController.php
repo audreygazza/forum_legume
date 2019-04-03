@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\ThemeRepository;
 use Symfony\Component\Form\Extension\Core\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -14,16 +15,27 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
 class HomeController extends AbstractController
 {
     /**
      * @Route("/home", name="home")
      */
-    public function index()
+    public function index(ThemeRepository $repository)
     {
+        $themes= $repository->findAll();
         return $this->render('home/index.html.twig', [
-
+          'themes'=> $themes
         ]);
+    }
+
+    /**
+     * @return [type] [description]
+     * @Route("/theme_visu/{id}", name="theme_visu")
+     */
+    public function themeShow()
+    {
+      return $this->render('home/theme.html.twig');
     }
 
     /**
