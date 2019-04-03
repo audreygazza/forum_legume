@@ -2,6 +2,10 @@ theme:
   name: nom
   description: description
 
+Name: Nom
+Description: Description
+actions: Actions
+
 discussion:
   title: Titre
   lastMsg: Dernier message
@@ -16,3 +20,9 @@ message:
   created_at: Créé le
   user: Utilisateur
   discussion: Topic
+
+user:
+  email: email
+  roles: roles
+  password: mot de passe
+  pseudo: pseudo

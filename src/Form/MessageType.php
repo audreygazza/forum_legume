@@ -23,11 +23,6 @@ class MessageType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('content', TextareaType::class)
-            ->add('created_at', DateType::class)
-            ->add('user',EntityType::class,[
-              'class'=> User::class,
-              'choice_label'=>'pseudo'
-            ])
             ->add('discussion',EntityType::class,[
               'class'=> discussion::class,
               'choice_label'=>'title'
