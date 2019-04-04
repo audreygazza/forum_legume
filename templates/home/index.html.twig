@@ -4,6 +4,7 @@
 
 {% block stylesheets %}
 {{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
@@ -18,21 +19,23 @@
 
       <div class="menu">
           <a href="{{path ('home') }}">HOME</a>
-          <a href="{{path ('home') }}">FRUITS DU MOIS</a>
-          <a href="{{path ('home') }}">PLANNING DES FRUITS</a>
-          <a href="{{path ('home') }}">FORUM</a>
+          <a href="#lienPageFruit">FRUITS DU MOIS</a>
+          <a href="#lienPageMois">PLANNING DES FRUITS</a>
+          <a href="#lienPageForum">FORUM</a>
         </div>
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion"></a>
+          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
         {% else %}
         {% if app.request.pathinfo != '/login' %}
-          <a href="{{ path('app_login') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion"></a>
+          <a href="{{ path('app_login') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
         {% endif %}
       {% endif %}
 
+        <a href="{{ path('register') }}"><img src="{{ asset('img/inscription.png')}}" alt="icone inscription" id="icone_Connexion2"></a>
+
         <div class="page1">
-    <h1>VEGGIZ</h1>
+    <h1 id="lienPageHome">VEGGIZ</h1>
     <h3>LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
     <!--<button class="nav"> FRUITS&LÉGUMES </button>
@@ -71,31 +74,58 @@
   </div>
 
   <div class="pageFruitsduMois">
-    <h2>FRUITS & LEGUMES DU MOIS </h2>
-    <div class="greenBox">
-      <div></div>
-      <div></div>
-      <div></div>
-    <div>
+    <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
+
+<div class="greenBox">
+      <div class="greenOne"></div>
+      <div class="greenTwo"></div>
+      <div class="greenThree"></div>
+      <div class="greenOne"></div>
+      <div class="greenTwo"></div>
+    </div>
   </div>
+
 
   <div class="Mois&Saisons">
-    <h2>MOIS & SAISONS </h2>
+    <h2 id="lienPageMois">MOIS & SAISONS </h2>
       <div></div>
       <div></div>
       <div></div>
-    <div>
   </div>
+
 
   <div class="FORUM">
-    <h2>FORUM </h2>
-    {% for theme in themes %}
-      <div>
-        <h3><a href="{{ path('theme_visu', {'id': theme.id}) }}"> {{ theme.name }}</h3>
-      </div>
-    {% endfor%}
+    <h2 id="lienPageForum">FORUM </h2>
+<div>
+<a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
+<div class="theme1">Coup d'Coeur Conso
+</div></a>
+</div>
 
-  </div>
+<div>
+<a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
+<div class="theme1">Coup d'Gueule Conso
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
+<div class="theme1">Bons Plans
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
+<div class="theme1">Avis sur Produits
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
+<div class="theme1">Conseils&Astuces
+</div></a>
+</div>
+
 
 {% endblock %}
 

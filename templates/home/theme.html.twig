@@ -1,0 +1,10 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+  <ul>
+  {{ dump(discussions) }}
+    {% for discussion in discussions %}
+    <li><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

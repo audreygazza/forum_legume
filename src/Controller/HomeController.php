@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Theme;
+use App\Repository\MessageRepository;
 use App\Repository\ThemeRepository;
+use App\Repository\DiscussionRepository;
 use Symfony\Component\Form\Extension\Core\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -31,11 +34,27 @@ class HomeController extends AbstractController
 
     /**
      * @return [type] [description]
-     * @Route("/theme_visu/{id}", name="theme_visu")
+     * @Route("/theme_visu/{slug}", name="theme_visu")
      */
-    public function themeShow()
+    public function themeShow(Theme $theme, DiscussionRepository $repository)
     {
-      return $this->render('home/theme.html.twig');
+      $themeId = $theme-> getId();
+      $discussions = $repository-> findByThemeId($themeId);
+      return $this->render('home/theme.html.twig', [
+        'discussions'=>$discussions
+      ]);
+    }
+
+    /**
+     * @return [type] [description]
+     * @Route("/message_visu/{id}", name="message_visu")
+     */
+    public function messagesShow($id, MessageRepository $repository)
+    {
+      $messages = $repository->findByDiscussionId($id);
+      return $this->render('home/messages.html.twig', [
+        'messages'=>$messages
+      ]);
     }
 
     /**

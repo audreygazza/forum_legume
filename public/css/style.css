@@ -58,17 +58,25 @@ table {
   margin: 40px;
 }
 
-#icone_Connexion{
+#icone_Connexion1{
 	position: absolute;
 	right: 50px;
 	top: 30px;
 	width: 33px;
 }
 
+#icone_Connexion2{
+	position: absolute;
+	right: 50px;
+	top: 70px;
+	width: 200px;
+}
+
 body {
  background-color: #79f481;
  font-family: Verdana, sans-serif;
  font-size: 100%;
+ width:100%;
  }
 
  h1{
@@ -82,10 +90,12 @@ body {
  h2{
  	font-family: "Dirty Brush";
  	src: url('DirtyBrush.ttf');
- 	text-align: center;
  	font-size: 8em;
- 	margin: 10%;
-	left: 50px;
+ 	margin-top: 10%;
+	margin-right: 5%;
+	margin-bottom: 5%;
+ 	padding-top: 50px;
+	text-align: right;
  }
 
 h3{
@@ -151,15 +161,37 @@ h3{
    /*font-size: 1,2em;
    box-shadow: 7px, 7px, 1px;*/
    }
-   .LesBoutons li a {
-     width:200px;
-     color:black;
-   }
+.LesBoutons li a {
+	width:200px;
+	color:black;
+	}
 
-	 @media only screen and (max-width: 478px) {
+@media only screen and (max-width: 478px) {
+}
 
-	 }
+.pageFruitsduMois {
+	background-color: white;
+	width: 100%;
+ 	padding-bottom:50px;
+  }
 
-	 .pageFruitsduMois {
-    background-color: white;
-    }
+.greenBox{
+	display: grid;
+	grid-template-columns:   200px 200px 200px 200px 200px ;
+	grid-template-rows: 200px 200px 200px 200px 200px ;
+	justify-content: center;
+	margin: 100px;
+	}
+
+
+.greenOne{
+	background-color: green;
+}
+
+.greenTwo{
+	background-color: #55BE47;
+}
+
+.greenThree{
+	background-color: #00AB39;
+}

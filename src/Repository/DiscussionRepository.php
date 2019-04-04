@@ -19,6 +19,14 @@ class DiscussionRepository extends ServiceEntityRepository
         parent::__construct($registry, Discussion::class);
     }
 
+    public function findByThemeId($idTheme){
+      return ($qb=$this->createQueryBuilder('discussion'))
+        ->where($qb->expr()->eq('discussion.theme', ':idTheme'))
+        ->setParameter(':idTheme', $idTheme)
+        ->orderBy('discussion.lastMsg', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
     // /**
     //  * @return Discussion[] Returns an array of Discussion objects
     //  */
