@@ -35,6 +35,20 @@ class ThemeFixtures extends Fixture
 
         $manager->persist($theme3);
 
+        $theme4 = new Theme();
+        $theme4 -> setName("Avis sur produits/Marques")
+                -> setDescription("Aidez-nous à consommer responsable. N'hésitez pas à partager circuits courts et trouvailles.");
+
+        $manager->persist($theme4);
+
+        $theme5 = new Theme();
+        $theme5 -> setName("Conseils & Astuces")
+                -> setDescription("Partagez ici les conseils cuisine, achat ou consommation.");
+
+        $manager->persist($theme5);
+
+
+
         $manager->flush();
 
         $this->addReference(self::THEME_COEUR, $theme1);
