@@ -26,11 +26,6 @@ class Commentaire
      */
     private $createdAt;
 
-    public function __construct()
-    {
-      $this->createdAt= new \DateTime();
-    }
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
@@ -41,6 +36,11 @@ class Commentaire
      * @ORM\JoinColumn(nullable=false)
      */
     private $message;
+
+    public function __construct()
+    {
+      $this->createdAt= new \DateTime();
+    }
 
     public function getId(): ?int
     {

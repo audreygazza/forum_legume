@@ -6,9 +6,11 @@ use App\Entity\User;
 use App\Entity\Discussion;
 use App\Entity\Message;
 use App\Entity\Theme;
+use App\Entity\Commentaire;
 use App\Repository\MessageRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\DiscussionRepository;
+use App\Repository\CommentaireRepository;
 use Symfony\Component\Form\Extension\Core\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -59,7 +61,22 @@ class HomeController extends AbstractController
       return $this->render('home/messages.html.twig', [
         'messages'=>$messages,
         'discussion_id'=>$id,
-        'title'=>$discussion->getTitle()
+        'title'=>$discussion->getTitle(),
+        'slug'=> $discussion->getTheme()->getSlug()
+      ]);
+    }
+
+    /**
+     * @return [type] [description]
+     * @Route("/commentaire_visu/{id}", name="commentaire_visu")
+     */
+    public function commentaireShow($id, CommentaireRepository $repository, Message $message)
+    {
+      $commentaires = $repository->findByMessageId($id);
+      return $this->render('home/commentaires.html.twig', [
+        'commentaires'=>$commentaires,
+        'message_id'=>$id,
+        'content'=>$message->getContent()
       ]);
     }
 
@@ -124,6 +141,41 @@ class HomeController extends AbstractController
       }
 
       return $this->render('home/message_create.html.twig', [
+        'form_create'=>$form->createView()
+      ]);
+    }
+
+
+    /**
+    * @Route("/commentaire/create/{idMessage}", name="commentaire_create")
+    */
+    public function createCommentaire(
+      $idMessage,
+      Request $request,
+      EntityManagerInterface $manager,
+      MessageRepository $repository
+    ) {
+      dump($idMessage);
+      $message = $repository->find($idMessage);
+      dump($message);
+      $commentaire = new Commentaire();
+      $form = $this->createFormBuilder($commentaire)
+        ->add('content', TextareaType::class)
+        ->getForm();
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $commentaire->setUser($this->getUser())
+          ->setMessage($message);
+        $manager->persist($commentaire);
+        $manager->flush();
+
+        return $this->redirectToRoute('message_visu', [
+          'id' => $commentaire->getMessage()->getDiscussion()->getId(),
+          'slug'=> $commentaire->getMassage()->getDiscussion()->getSlug()
+        ]);
+      }
+
+      return $this->render('home/commentaire_create.html.twig', [
         'form_create'=>$form->createView()
       ]);
     }
