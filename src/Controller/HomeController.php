@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Discussion;
+use App\Entity\Message;
 use App\Entity\Theme;
 use App\Repository\MessageRepository;
 use App\Repository\ThemeRepository;
@@ -11,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,8 +43,9 @@ class HomeController extends AbstractController
     {
       $themeId = $theme-> getId();
       $discussions = $repository-> findByThemeId($themeId);
-      return $this->render('home/theme.html.twig', [
-        'discussions'=>$discussions
+      return $this->render('home/discussions.html.twig', [
+        'discussions'=>$discussions,
+        'theme_slug'=>$theme->getSlug()
       ]);
     }
 
@@ -49,11 +53,78 @@ class HomeController extends AbstractController
      * @return [type] [description]
      * @Route("/message_visu/{id}", name="message_visu")
      */
-    public function messagesShow($id, MessageRepository $repository)
+    public function messagesShow($id, MessageRepository $repository, Discussion $discussion)
     {
       $messages = $repository->findByDiscussionId($id);
       return $this->render('home/messages.html.twig', [
-        'messages'=>$messages
+        'messages'=>$messages,
+        'discussion_id'=>$id,
+        'title'=>$discussion->getTitle()
+      ]);
+    }
+
+    /**
+    * @Route("/discussion/create/{slug}", name="discussion_create")
+    */
+    public function createDiscussion(
+      $slug,
+      Request $request,
+      EntityManagerInterface $manager,
+      ThemeRepository $repository
+    ) {
+      $theme = $repository->findOneBy([
+        'slug'=> $slug
+      ]);
+      $discussion = new Discussion();
+      $form = $this->createFormBuilder($discussion)
+        ->add('title', TextType::class)
+        ->getForm();
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $discussion->setTheme($theme);
+        $manager->persist($discussion);
+        $manager->flush();
+
+        return $this->redirectToRoute('theme_visu', [
+          'slug'=>$slug
+        ]);
+      }
+
+      return $this->render('home/discussion_create.html.twig', [
+        'form_create'=>$form->createView()
+      ]);
+    }
+
+    /**
+    * @Route("/message/create/{idDiscussion}", name="message_create")
+    */
+    public function createMessage(
+      $idDiscussion,
+      Request $request,
+      EntityManagerInterface $manager,
+      DiscussionRepository $repository
+    ) {
+      $discussion = $repository->find($idDiscussion);
+
+      $message = new Message();
+      $form = $this->createFormBuilder($message)
+        ->add('content', TextareaType::class)
+        ->getForm();
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $message->setTitle($discussion->getTitle())
+          ->setUser($this->getUser())
+          ->setDiscussion($discussion);
+        $manager->persist($message);
+        $manager->flush();
+
+        return $this->redirectToRoute('message_visu', [
+          'id'=>$idDiscussion
+        ]);
+      }
+
+      return $this->render('home/message_create.html.twig', [
+        'form_create'=>$form->createView()
       ]);
     }
 

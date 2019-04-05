@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<h1>{{ title }}</h1>
 <ul>
   {% for message in messages %}
-  <li>{{ message.title }} <br> {{ message.content }}</li>
+  <li>{{ message.content }}
+    <ul>
+    {% for commentaire in message.commentaires %}
+      <li> {{commentaire.content}} </li>
+    {% endfor %}
+    </ul>
+  </li>
   {% endfor %}
 </ul>
+  <a href="{{ path('message_create', {'idDiscussion': discussion_id}) }}">Créer un nouveau message</a>
 {% endblock %}
