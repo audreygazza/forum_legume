@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,9 +43,15 @@ class Message
      */
     private $discussion;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="message", orphanRemoval=true)
+     */
+    private $commentaires;
+
     public function __construct()
     {
       $this->created_at= new \DateTime();
+      $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,6 +115,37 @@ class Message
     public function setDiscussion(?Discussion $discussion): self
     {
         $this->discussion = $discussion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getMessage() === $this) {
+                $commentaire->setMessage(null);
+            }
+        }
 
         return $this;
     }

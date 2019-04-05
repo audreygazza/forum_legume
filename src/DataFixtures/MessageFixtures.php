@@ -9,6 +9,10 @@ use App\Entity\Message;
 
 class MessageFixtures extends Fixture implements DependentFixtureInterface
 {
+    const MESSAGE_AMAP = 'msg1';
+    const MESSAGE_ALERTE = 'msg2';
+    const MESSAGE_DRIVE = 'msg3';
+
     public function load(ObjectManager $manager)
     {
         // $product = new Product();
@@ -16,14 +20,14 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
 
         $message1 = new Message();
         $message1 -> setTitle("Les AMAP, le drive des écolos")
-         -> setContent("Bonjour, un premier coup de coeur pour ma nouvelle découverte : le systhème des AMAP ! Cela permet de consommer local, bio et zero dechet sans avoir besoin de me déplacer. C'est une sorte de drive super ecolo et super pratique. En plus cela permet de parler avec les producteurs.")
+         -> setContent("Bonjour, un premier coup de coeur pour ma nouvelle découverte : le système des AMAP ! Cela permet de consommer local, bio et zero dechet sans avoir besoin de me déplacer. C'est une sorte de drive super écolo et super pratique. En plus cela permet de parler avec les producteurs.")
          ->setUser($this->getReference(UserFixtures::USER_PABLO))
          ->setDiscussion($this->getReference(DiscussionFixtures::DISCUSSION_AMAP));
          $manager->persist($message1);
 
         $message2 = new Message();
         $message2 -> setTitle("Alerte au surremballage !!")
-       -> setContent("Bonjour, un premier coup de gueule sur votre site. Cela concerne le suremballage des produits bio. C'est outrageant, je dénonce une véritable hypocrisie de la part des industriels et des marques qui vendent très bien leur greenbashing. Il faud boycotter ces marques qui vous vendent du sans pesticide et du plastique.")
+       -> setContent("Bonjour, un premier coup de gueule sur votre site. Cela concerne le suremballage des produits bio. C'est outrageant, je dénonce une véritable hypocrisie de la part des industriels et des marques qui vendent très bien leur greenbashing. Il faut boycotter ces marques qui vous vendent du sans pesticide et du 100% plastique.")
        ->setUser($this->getReference(UserFixtures::USER_SALOME))
        ->setDiscussion($this->getReference(DiscussionFixtures::DISCUSSION_ALERTE));
        $manager->persist($message2);
@@ -36,6 +40,10 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
       $manager->persist($message3);
 
         $manager->flush();
+
+        $this->addReference(self::MESSAGE_AMAP, $message1);
+        $this->addReference(self::MESSAGE_ALERTE, $message2);
+        $this->addReference(self::MESSAGE_DRIVE, $message3);
     }
 
     /**

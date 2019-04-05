@@ -1,7 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}HomeController{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+
+
 
 {% block body %}
-<h1>Bonjour</h1>
+
+
+  <div class="pageHome">
+
+      <div class="menu">
+          <a href="{{path ('home') }}">HOME</a>
+          <a href="#lienPageFruit">FRUITS DU MOIS</a>
+          <a href="#lienPageMois">PLANNING DES FRUITS</a>
+          <a href="#lienPageForum">FORUM</a>
+        </div>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
+        {% else %}
+        {% if app.request.pathinfo != '/login' %}
+          <a href="{{ path('app_login') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
+        {% endif %}
+      {% endif %}
+
+        <a href="{{ path('register') }}"><img src="{{ asset('img/inscription.png')}}" alt="icone inscription" id="icone_Connexion2"></a>
+
+        <div class="page1">
+    <h1 id="lienPageHome">VEGGIZ</h1>
+    <h3>LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
+
+    <!--<button class="nav"> FRUITS&LÉGUMES </button>
+    <button class="nav"> MOIS&SAISONS </button>
+    <button class="nav"> PROPRIÉTÉS </button>-->
+            <div id="bouton_accueil">
+
+         <ul>
+          <li class="main_button"><a href="#">FRUITS&LÉGUMES</a>
+            <ul class="LesBoutons">
+              <li><a href="#">Banane</a></li>
+              <li><a href="#">Grenade</a></li>
+              <li><a href="#">kiwi</a></li>
+            </ul>
+          </li>
+
+          <li class="main_button"><a href="#">MOIS&SAISONS</a>
+            <ul class="LesBoutons">
+              <li><a href="#">Juin</a></li>
+              <li><a href="#">Été</a></li>
+
+            </ul>
+          </li>
+
+          <li class="main_button"><a href="#"> PROPRIÉTÉS</a>
+            <ul class="LesBoutons">
+              <li><a href="#"> Chiantise</a></li>
+              <li><a href="#"> mal de tête </a></li>
+              <li><a href="#"> Syndrome des Francais</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </div>
+
+  </div>
+
+  <div class="pageFruitsduMois">
+    <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
+
+<div class="greenBox">
+      <div class="greenOne"></div>
+      <div class="greenTwo"></div>
+      <div class="greenThree"></div>
+      <div class="greenOne"></div>
+      <div class="greenTwo"></div>
+    </div>
+  </div>
+
+
+  <div class="Mois&Saisons">
+    <h2 id="lienPageMois">MOIS & SAISONS </h2>
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+
+
+  <div class="FORUM">
+    <h2 id="lienPageForum">FORUM </h2>
+<div>
+<a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
+<div class="theme1">Coup d'Coeur Conso
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
+<div class="theme1">Coup d'Gueule Conso
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
+<div class="theme1">Bons Plans
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
+<div class="theme1">Avis sur Produits
+</div></a>
+</div>
+
+<div>
+<a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
+<div class="theme1">Conseils&Astuces
+</div></a>
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 {% endblock %}
