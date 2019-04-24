@@ -41,23 +41,34 @@
     <!--<button class="nav"> FRUITS&LÉGUMES </button>
     <button class="nav"> MOIS&SAISONS </button>
     <button class="nav"> PROPRIÉTÉS </button>-->
-        <div id="bouton_accueil">
+            <div id="bouton_accueil">
 
          <ul>
-          <li class="main_button"><a href="#">FRUITS DU MOIS</a>
-            <ul class="LesBoutons"></ul>
+          <li class="main_button"><a href="#">FRUITS&LÉGUMES</a>
+            <ul class="LesBoutons">
+              <li><a href="#">Banane</a></li>
+              <li><a href="#">Grenade</a></li>
+              <li><a href="#">kiwi</a></li>
+            </ul>
           </li>
 
-          <li class="main_button"><a href="#">PLANNING DES FRUITS</a>
-            <ul class="LesBoutons"></ul>
+          <li class="main_button"><a href="#">MOIS&SAISONS</a>
+            <ul class="LesBoutons">
+              <li><a href="#">Juin</a></li>
+              <li><a href="#">Été</a></li>
+
+            </ul>
           </li>
 
-          <li class="main_button"><a href="#">FORUM</a>
-            <ul class="LesBoutons"></ul>
+          <li class="main_button"><a href="#"> PROPRIÉTÉS</a>
+            <ul class="LesBoutons">
+              <li><a href="#"> Chiantise</a></li>
+              <li><a href="#"> mal de tête </a></li>
+              <li><a href="#"> Syndrome des Francais</a></li>
+            </ul>
           </li>
         </ul>
       </div>
-
       </div>
 
   </div>
@@ -85,36 +96,48 @@
 
   <div class="FORUM">
     <h2 id="lienPageForum">FORUM </h2>
-<div>
-<a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
-<div class="theme1">Coup d'Coeur Conso
-</div></a>
-</div>
+    <div class="forum_container">
 
-<div>
-<a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
-<div class="theme1">Coup d'Gueule Conso
-</div></a>
-</div>
+<div class="ligne1">
+    <div class="box_theme">
+      <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
+      <a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
+      <div class="texte">COUP D'COEUR CONSO <p> Paratgez vos coups de coeur cuisine, legumes ou producteurs.</p>
+      </div></a>
+    </div>
 
-<div>
-<a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
-<div class="theme1">Bons Plans
-</div></a>
-</div>
+    <div class="box_theme">
+      <img src="{{ asset('img/icone-gueule.png')}}" alt="icone theme" id="icone_theme">
+      <a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
+      <div class="texte">COUP D'GUEULE CONSO <p> Vous avez reperé des
+      arnaques ou des prosuits de mauvaise qualité. Faites en part.</p>
+      </div></a>
+    </div>
 
-<div>
-<a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
-<div class="theme1">Avis sur Produits
-</div></a>
-</div>
+    <div class="box_theme">
+      <img src="{{ asset('img/icone-bonplan.png')}}" alt="icone theme" id="icone_theme">
+      <a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
+      <div class="texte">BONS PLANS <p> Partagez ici les bons plans que vous avez repéré</p>
+    </div></a>
+    </div>
+  <div>
 
-<div>
-<a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
-<div class="theme1">Conseils&Astuces
-</div></a>
-</div>
+<div class="ligne2">
+    <div class="box_theme">
+        <img src="{{ asset('img/icone-avis.png')}}" alt="icone theme" id="icone_theme">
+        <a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
+        <div class="texte">AVIS PRODUITS & MARQUES <p> Aidez nous a
+        consommer responsable.N’hesitez pas à partager circuit courts et trouvailles</p>
+        </div></a>
+    </div>
 
+    <div class="box_theme">
+        <img src="{{ asset('img/icone-conseil.png')}}" alt="icone theme" id="icone_theme">
+        <a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
+        <div class="texte">CONSEILS&ASTUCES <p> Partagez ici les conseils cuisine achat ou consommation</p>
+        </div></a>
+    </div>
+</div>
 
 {% endblock %}
 

@@ -26,6 +26,11 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+
+a{
+	text-decoration: none;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -196,4 +201,56 @@ h3{
 
 .greenThree{
 	background-color: #00AB39;
+}
+
+.FORUM {
+	background-color: white;
+	width: 100%;
+ 	padding-bottom:50px;
+  }
+
+.forum_container{
+	margin-top: 150px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 350px;
+}
+
+.box_theme {
+	width:300px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+.box_theme img{
+margin-left: 20%;
+}
+
+#icone_theme{
+	justify-content: center;
+	width: 150px;
+}
+
+.box_theme a{
+	font-family: "Roboto";
+	src: url('Roboto-Regular.ttf');
+	font-size: 2em;
+	color: black;
+	text-align: center;
+}
+
+.box_theme a p{
+	font-family: "Roboto";
+	src: url('Roboto-Regular.ttf');
+	font-size: 0.8em;
+	margin-top: 20px;
+	color: grey;
+}
+.texte{
+	margin-top: 40px;
+	margin-bottom:60px;
+}
+.ligne2{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
