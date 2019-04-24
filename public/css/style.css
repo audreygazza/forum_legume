@@ -45,6 +45,7 @@ table {
 
 .page1{
   margin-top: 12%;
+	height: 100%;
 }
 
 .menu{
@@ -99,7 +100,8 @@ body {
  }
 
 h3{
-  font-family: "roboto";
+  font-family: "Roboto";
+	src: url('Roboto-Regular.ttf');
   text-align: center;
   font-size: 2em;
   margin: 15px;
