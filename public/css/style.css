@@ -46,11 +46,28 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /* FIN DU RESET*/
 
 .page1{
   margin-top: 12%;
-	height: 100%;
+	height: 500px;
+}
+
+.container-burger{
+	position: fixed;
+	margin-left: 20px;
+	margin-top: 20px;
+	display: inline-block;
+}
+
+.rond1, .rond2, .rond3{
+	margin-left: 20px;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: black;
+	margin: 6px 0;
 }
 
 .menu{
