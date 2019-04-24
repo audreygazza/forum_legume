@@ -60,16 +60,16 @@ table {
 
 #icone_Connexion1{
 	position: absolute;
-	right: 50px;
-	top: 30px;
-	width: 33px;
+	right: 100px;
+	top: 0px;
+	width: 130px;
 }
 
 #icone_Connexion2{
 	position: absolute;
-	right: 50px;
-	top: 70px;
-	width: 200px;
+	right: 100px;
+	top: 60px;
+	width: 130px;
 }
 
 body {

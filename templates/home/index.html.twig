@@ -25,10 +25,10 @@
         </div>
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
+          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/connexion.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
         {% else %}
         {% if app.request.pathinfo != '/login' %}
-          <a href="{{ path('app_login') }}"><img src="{{ asset('img/user.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
+          <a href="{{ path('app_login') }}"><img src="{{ asset('img/connexion.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
         {% endif %}
       {% endif %}
 
