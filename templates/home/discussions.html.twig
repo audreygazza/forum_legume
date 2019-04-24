@@ -2,9 +2,10 @@
 
 {% block body %}
   <ul>
-  {{ dump(discussions) }}
     {% for discussion in discussions %}
     <li><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
     {% endfor %}
   </ul>
+  <a href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a><br>
+  <a href="{{ path('home')}}">Retour</a>
 {% endblock %}

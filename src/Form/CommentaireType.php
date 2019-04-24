@@ -2,38 +2,37 @@
 
 namespace App\Form;
 
-use App\Entity\Message;
-use App\Entity\User;
-use App\Entity\Discussion;
+use App\Entity\Commentaire;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-
-class MessageType extends AbstractType
+class CommentaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
             ->add('content', TextareaType::class)
-            ->add('discussion',EntityType::class,[
-              'class'=> Discussion::class,
+            ->add('createdAt', DateType::class)
+            ->add('user', EntityType::class, [
+              'class'=> User::class,
+              'choice_label'=>'pseudo'
+            ])
+            ->add('message', EntityType::class, [
+              'class'=> Message::class,
               'choice_label'=>'title'
-              ])
+            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Message::class,
-            'label_format' => 'message.%name%'
-
+            'data_class' => Commentaire::class,
+            'label_format' => 'commentaire.%name%'
         ]);
     }
 }
