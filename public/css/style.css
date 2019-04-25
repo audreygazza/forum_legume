@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Roboto', sans-serif;
 }
 
 a{
@@ -51,6 +52,29 @@ table {
 @font-face{
 	font-family: "Roboto";
 	src: url('Roboto-Regular.ttf');
+}
+
+/* Menu hover */
+.hover-on-me {
+    width: 200px;
+    height: 200px;
+    background-color: #00f;
+    opacity: 1;
+    transition: 0.5s ease-in;
+    color: #fff;
+}
+
+.hidden {
+    width: 200px;
+    height: 200px;
+    background-color: #0ff;
+    opacity: 0;
+    transition: 0.5s ease-in;
+    color: #fff;
+}
+
+.show-me {
+    opacity: 1;
 }
 
 .page1{
