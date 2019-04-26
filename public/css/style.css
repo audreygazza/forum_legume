@@ -259,12 +259,6 @@ h3{
 	width: 100%;
   }
 
-.forum_container{
-	margin-top: 150px;
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 350px;
-}
 .row{
 	display: flex;
 }
@@ -298,22 +292,10 @@ margin-left: 20%;
 	color: grey;
 }
 .texte{
+	width: 200px;
 	margin-top: 40px;
 	margin-bottom:60px;
 }
-.ligne2{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
 .footer{
 	background-color:#9b9b9b;
-	margin-top: 10px;
-	padding-top: 10px;
-	margin-bottom: 0px;
-}
-.footer p{
-	text-align: center;
-	padding-bottom: 10px;
 }
