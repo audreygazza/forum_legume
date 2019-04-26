@@ -165,15 +165,21 @@ h3{
 }
 
 .main_button{
-  width:222px;
+  /*width:222px;*/
   box-shadow: 7px 7px 1px black;
+	margin-bottom: 20px; !important;
+	 background-color: white; !important;
+	 color :  #000; !important;
+	  font-size: 1.25em;
+		 border-radius: 10px;
 }
 
 .main_button a {
-  display: inline;
+  /*display: inline;*/
   text-align: center;
   color:black;
 }
+/*
 .main_button, li {
  float:left;
  background-color: white;
@@ -183,7 +189,7 @@ h3{
  font-size: 1.25em;
  text-align: center;
  }
-
+*/
 #bouton_accueil li a:hover {
  color:#FFD700;
  }
