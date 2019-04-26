@@ -102,13 +102,13 @@ body {
    font-family: "Dirty Brush";
    src: url('typo/DirtyBrush.ttf');
    text-align: center;
-   font-size: 10em;
+   font-size: 10em !important;
    margin: 15px;
  }
 
  h2{
  	font-family: "Dirty Brush";
- 	src: url('DirtyBrush.ttf');
+ 	src: url('typo/DirtyBrush.ttf');
  	font-size: 8em;
  	margin-top: 10%;
 	margin-right: 5%;
