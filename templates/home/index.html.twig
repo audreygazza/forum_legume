@@ -5,7 +5,7 @@
 {% block stylesheets %}
 {{parent()}}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script src="script/script.js">
@@ -16,139 +16,207 @@
 
 
 {% block body %}
+<!-- bloc principal -->
+<div class="container-fluid">
+  <!-- Menu -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{path ('home') }}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#lienPageFruit">FRUITS DU MOIS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#lienPageMois">PLANNING DES FRUITS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#lienPageForum">FORUM</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
+          <a class="nav-link" href="#">Inscription</a>
+        </li>
+        <li class="nav-item" data-toggle="modal" data-target="#loginForm">
+          <a class="nav-link" href="#">Connexion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end menu -->
+  <!-- bloc Titre et boutons -->
+  <div class="jumbotron">
+    <h1 class="display-4" id="lienPageHome">VEGGIZ</h1>
+    <h3 class="lead">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
-  <div class="pageHome">
-      <div class="hover-on-me">
-        <div class="rond1"></div>
-        <div class="rond2"></div>
-        <div class="rond3"></div>
+    <div class="row">
+      <span class="col-md-1"></span>
+      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageFruit" role="button">Fruits & Légumes</a>
+      <span class="col-md-1"></span>
+      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageMois" role="button">Mois & Saisons</a>
+      <span class="col-md-1"></span>
+      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageForum" role="button">Forum</a>
+    </div>
+
+    <div class="pageFruitsduMois">
+      <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
+      <div class="greenBox">
+          <div class="greenOne"></div>
+          <div class="greenTwo"></div>
+          <div class="greenThree"></div>
+          <div class="greenOne"></div>
+          <div class="greenTwo"></div>
       </div>
+    </div>
 
-      <div class='hidden'>
+    <div class="Mois&Saisons">
+      <h2 id="lienPageMois">MOIS & SAISONS </h2>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-      </div>
 
-
-
-
-      <div class="menu">
-          <a href="{{path ('home') }}">HOME</a>
-          <a href="#lienPageFruit">FRUITS DU MOIS</a>
-          <a href="#lienPageMois">PLANNING DES FRUITS</a>
-          <a href="#lienPageForum">FORUM</a>
+    <div class="FORUM">
+      <h2 id="lienPageForum">FORUM </h2>
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
+          <a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
+          <div class="texte">COUP D'COEUR CONSO <p> Paratgez vos coups de coeur cuisine, legumes ou producteurs.</p>
+          </div></a>
         </div>
 
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <a href="{{ path('logout_route') }}"><img src="{{ asset('img/connexion.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
-        {% else %}
-        {% if app.request.pathinfo != '/login' %}
-          <a href="{{ path('app_login') }}"><img src="{{ asset('img/connexion.png')}}" alt="icone connexion" id="icone_Connexion1"></a>
-        {% endif %}
-      {% endif %}
+        <div class="col-lg-4 mb-4">
+          <img src="{{ asset('img/icone-gueule.png')}}" alt="icone theme" id="icone_theme">
+          <a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
+          <div class="texte">COUP D'GUEULE CONSO <p> Vous avez reperé des
+          arnaques ou des prosuits de mauvaise qualité. Faites en part.</p>
+          </div></a>
+        </div>
 
-        <a href="{{ path('register') }}"><img src="{{ asset('img/inscription.png')}}" alt="icone inscription" id="icone_Connexion2"></a>
+        <div class="col-lg-4 mb-4">
+          <img src="{{ asset('img/icone-bonplan.png')}}" alt="icone theme" id="icone_theme">
+          <a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
+            <div class="texte">BONS PLANS <p> Partagez ici les bons plans que vous avez repéré</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <img src="{{ asset('img/icone-avis.png')}}" alt="icone theme" id="icone_theme">
+            <a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
+            <div class="texte">AVIS PRODUITS & MARQUES <p> Aidez nous a
+            consommer responsable.N’hesitez pas à partager circuit courts et trouvailles</p>
+            </div></a>
+        </div>
 
-        <div class="page1">
-    <h1 id="lienPageHome">VEGGIZ</h1>
-    <h3>LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
+        <div class="col-lg-4 mb-4">
+            <img src="{{ asset('img/icone-conseil.png')}}" alt="icone theme" id="icone_theme">
+            <a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
+            <div class="texte">CONSEILS&ASTUCES <p> Partagez ici les conseils cuisine achat ou consommation</p>
+            </div></a>
+        </div>
 
-    <!--<button class="nav"> FRUITS&LÉGUMES </button>
-    <button class="nav"> MOIS&SAISONS </button>
-    <button class="nav"> PROPRIÉTÉS </button>-->
-            <div id="bouton_accueil">
-
-         <ul>
-          <li class="main_button"><a href="#lienPageFruit">FRUITS DU MOIS</a>
-            <ul class="LesBoutons"></ul>
-          </li>
-
-          <li class="main_button"><a href="#lienPageMois">CALENDRIER</a>
-            <ul class="LesBoutons"></ul>
-          </li>
-
-          <li class="main_button"><a href="#lienPageForum">FORUM</a>
-            <ul class="LesBoutons"></ul>
-          </li>
-        </ul>
-      </div>
       </div>
 
-  </div>
-
-  <div class="pageFruitsduMois">
-
-    <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
-
-<div class="greenBox">
-      <div class="greenOne"></div>
-      <div class="greenTwo"></div>
-      <div class="greenThree"></div>
-      <div class="greenOne"></div>
-      <div class="greenTwo"></div>
-    </div>
-  </div>
-
-
-  <div class="Mois&Saisons">
-    <h2 id="lienPageMois">MOIS & SAISONS </h2>
-      <div></div>
-      <div></div>
-      <div></div>
-  </div>
-
-
-  <div class="FORUM">
-    <h2 id="lienPageForum">FORUM </h2>
-    <div class="forum_container">
-
-    <div class="box_theme">
-      <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
-      <a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
-      <div class="texte">COUP D'COEUR CONSO <p> Paratgez vos coups de coeur cuisine, legumes ou producteurs.</p>
-      </div></a>
-    </div>
-
-    <div class="box_theme">
-      <img src="{{ asset('img/icone-gueule.png')}}" alt="icone theme" id="icone_theme">
-      <a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
-      <div class="texte">COUP D'GUEULE CONSO <p> Vous avez reperé des
-      arnaques ou des prosuits de mauvaise qualité. Faites en part.</p>
-      </div></a>
-    </div>
-
-    <div class="box_theme">
-      <img src="{{ asset('img/icone-bonplan.png')}}" alt="icone theme" id="icone_theme">
-      <a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
-      <div class="texte">BONS PLANS <p> Partagez ici les bons plans que vous avez repéré</p>
-    </div></a>
-    </div>
-
-<div class="ligne2">
-    <div class="box_theme">
-        <img src="{{ asset('img/icone-avis.png')}}" alt="icone theme" id="icone_theme">
-        <a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
-        <div class="texte">AVIS PRODUITS & MARQUES <p> Aidez nous a
-        consommer responsable.N’hesitez pas à partager circuit courts et trouvailles</p>
-        </div></a>
-    </div>
-
-    <div class="box_theme">
-        <img src="{{ asset('img/icone-conseil.png')}}" alt="icone theme" id="icone_theme">
-        <a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
-        <div class="texte">CONSEILS&ASTUCES <p> Partagez ici les conseils cuisine achat ou consommation</p>
-        </div></a>
-    </div>
+  <!-- END bloc Titre et boutons -->
 </div>
-</div>
+<!-- end Bloc principal -->
 
-  <div class="footer">
+  <div class="footer footer-copyright text-center py-3">
     <p> Copyright © 2019 All rights reserved </p>
     <p> Created by Audrey Gazza & Océane Allix </p>
   </div>
 
+  <!-- formulaire de register (masqué au départ. S'affichera en popup lors du click -->
+  <div class="modal fade" id="subscribeForm" tabindex="-1" role="dialog" aria-labelledby="subscribeFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subscribeFormModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {{ form_start(register_form) }}
+        <div class="modal-body">
+
+            {{ form_widget(register_form) }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" name="register" value="s'inscrire">
+        </div>
+        {{ form_end(register_form) }}
+      </div>
+    </div>
+  </div>
+    <!-- end popup register -->
+
+  <!--  popup login -->
+  <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="loginFormLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginFormLabel">
+            Connexion
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+      {% if error %}
+          <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+      {% endif %}
+
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+      <input type="hidden" name="_csrf_token"
+             value="{{ csrf_token('authenticate') }}"
+      >
+
+      {#
+          Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+          See https://symfony.com/doc/current/security/remember_me.html
+
+          <div class="checkbox mb-3">
+              <label>
+                  <input type="checkbox" name="_remember_me"> Remember me
+              </label>
+          </div>
+      #}
+       <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+      </div>
+    </form>
+
+      </div>
+    </div>
+    </div>
+  </div>
+  <!-- end popup login -->
+
+
+
+
+
 {% endblock %}
 
 {% block javascripts %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 {% endblock %}
