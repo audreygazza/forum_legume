@@ -265,12 +265,14 @@ h3{
 	flex-wrap: wrap;
 	margin-left: 350px;
 }
-
-.box_theme {
+.row{
+	display: flex;
+}
+/*.box_theme {
 	width:300px;
 	margin-right: 50px;
 	margin-left: 50px;
-}
+}*/
 .box_theme img{
 margin-left: 20%;
 }
