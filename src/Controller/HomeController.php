@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
 class HomeController extends AbstractController
@@ -29,11 +30,45 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index(ThemeRepository $repository)
+    public function index(ThemeRepository $repository,
+                          Request $request,
+                          EntityManagerInterface $manager,
+                          UserPasswordEncoderInterface $encoder,
+                          AuthenticationUtils $authenticationUtils)
     {
         $themes= $repository->findAll();
+
+        //nécessaire pour la popul masquée register
+        $user = new User();
+        $form = $this->createFormBuilder($user)
+          ->add('email', EmailType::class)
+          ->add('password', PasswordType::class)
+          ->add('pseudo', TextType::class)
+          ->getForm();
+
+        $form->handleRequest($request);
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+          $user->setRoles(['ROLE_USER']);
+
+          $encoded = $encoder->encodePassword($user, $form['password']->getData());
+          $user->setPassword($encoded);
+
+          $manager->persist($user);
+          $manager->flush();
+          return $this->redirectToRoute('home');
+        }
+
         return $this->render('home/index.html.twig', [
-          'themes'=> $themes
+          'themes'=> $themes,
+          'register_form'=> $form->createView(),
+          'last_username' => $lastUsername,
+          'error' => $error
         ]);
     }
 
