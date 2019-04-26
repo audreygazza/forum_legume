@@ -51,7 +51,12 @@ table {
 /* FIN DU RESET*/
 @font-face{
 	font-family: "Roboto";
-	src: url('typo/Roboto-Regular.ttf');
+	src: url('../typo/Roboto-Regular.ttf');
+}
+
+@font-face {
+	font-family: "DirtyBrush";
+	src: url("../typo/DirtyBrush.ttf");
 }
 
 .container-fluid{
@@ -99,16 +104,16 @@ body {
  }
 
  h1{
-   font-family: "Dirty Brush";
-   src: url('typo/DirtyBrush.ttf');
+   font-family: "DirtyBrush";
+
    text-align: center;
    font-size: 10em !important;
    margin: 15px;
  }
 
  h2{
- 	font-family: "Dirty Brush";
- 	src: url('typo/DirtyBrush.ttf');
+ 	font-family: "DirtyBrush";
+
  	font-size: 8em;
  	margin-top: 10%;
 	margin-right: 5%;
@@ -119,7 +124,7 @@ body {
 
 h3{
   font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+
   text-align: center;
   font-size: 2em;
   margin: 15px;
@@ -247,7 +252,7 @@ margin-left: 20%;
 
 .box_theme a{
 	font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+
 	font-size: 2em;
 	color: black;
 	text-align: center;
@@ -255,7 +260,7 @@ margin-left: 20%;
 
 .box_theme a p{
 	font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+
 	font-size: 0.8em;
 	margin-top: 20px;
 	color: grey;
