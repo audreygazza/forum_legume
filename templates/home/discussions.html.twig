@@ -1,11 +1,54 @@
 {%  extends 'base.html.twig' %}
 
-{% block body %}
-  <ul>
-    {% for discussion in discussions %}
-    <li><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
-    {% endfor %}
-  </ul>
-  <a href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a><br>
-  <a href="{{ path('home')}}">Retour</a>
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 {% endblock %}
+
+{% block body %}
+
+<!-- Menu -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path ('home') }}">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lienPageFruit">FRUITS DU MOIS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lienPageMois">PLANNING DES FRUITS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#lienPageForum">FORUM</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
+        <a class="nav-link" href="#">Inscription</a>
+      </li>
+      <li class="nav-item" data-toggle="modal" data-target="#loginForm">
+        <a class="nav-link" href="#">Connexion</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- end menu -->
+<div class="">
+  <h6>VEGGIZ</h6>
+    <ul class="container list-group">
+      {% for discussion in discussions %}
+      <li class="list-group-item list-group-item-action"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <a href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a><br>
+    <a href="{{ path('home')}}">Retour</a>
+    </div>
+  {% endblock %}
