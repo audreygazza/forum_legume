@@ -76,7 +76,7 @@ table {
 /* Menu  */
 
 
-/* Page accueil */
+/* PAGE ACCUEIL */
 
 /* Bloc titre et boutons */
 .jumbotron{
@@ -104,9 +104,9 @@ h3{
 }
 
 /* Boutons */
-.row{
+ .row{          /*inutile */
 	margin: 0px !important;
-	align-content: center !important;
+	text-align: center !important;
 }
 
 .main_button{
@@ -135,8 +135,7 @@ h2{
 .pageFruitsduMois {
 	background-color: white;
 	width: 100%;
-
-  }
+}
 
 .greenBox{
 	display: grid;
@@ -158,44 +157,42 @@ h2{
 	background-color: #00AB39;
 }
 
+
+/* PAGE MOIS&SAISONS */
+
+
+
+/* PAGE FORUM */
 .FORUM {
 	background-color: white;
 	width: 100%;
   }
 
-/*.box_theme {
-	width:300px;
-	margin-right: 50px;
-	margin-left: 50px;
-}*/
-.box_theme img{
-margin-left: 20%;
+#icone_theme{
+	width: 100px;
+	margin-bottom: 15px;
 }
 
-#icone_theme{
-	justify-content: center;
-	width: 150px;
+.imgEtTxt{
+	margin-bottom: 65px;
 }
 
 .box_theme a{
-	font-family: "Roboto";
-
-	font-size: 2em;
+	font-family: "RobotoMedium";
+	text-decoration: none;
+	font-size: 1em;
 	color: black;
 	text-align: center;
 }
 
 .box_theme a p{
 	font-family: "Roboto";
-
-	font-size: 0.8em;
+	font-size: 1em;
 	margin-top: 20px;
 	color: grey;
 }
 .texte{
-	width: 200px;
-	margin-top: 40px;
-	margin-bottom:60px;
+	padding: 0 15% 0 15%;
 }
 .footer{
 	background-color:#9b9b9b;

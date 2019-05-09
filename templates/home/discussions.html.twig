@@ -1,9 +1,21 @@
 {%  extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+<script src="script/script.js">
+
+</script>
+
+{% endblock %}
+
 {% block body %}
-  <ul>
+  <ul class="list-group">
     {% for discussion in discussions %}
-    <li><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
+    <li class="list-group-item list-group-item-action"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
     {% endfor %}
   </ul>
   <a href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a><br>
