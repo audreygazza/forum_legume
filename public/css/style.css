@@ -51,51 +51,25 @@ table {
 /* FIN DU RESET*/
 @font-face{
 	font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+	src: url('../typo/Roboto-Regular.ttf');
 }
 
-/* Menu hover */
-.hover-on-me {
-    width: 200px;
-    height: 200px;
-    background-color: #00f;
-    opacity: 1;
-    transition: 0.5s ease-in;
-    color: #fff;
+@font-face {
+	font-family: "DirtyBrush";
+	src: url("../typo/DirtyBrush.ttf");
 }
 
-.hidden {
-    width: 200px;
-    height: 200px;
-    background-color: #0ff;
-    opacity: 0;
-    transition: 0.5s ease-in;
-    color: #fff;
+.container-fluid{
+	padding: 0;
 }
 
-.show-me {
-    opacity: 1;
+.jumbotron{
+	background-color: #79f481;
 }
 
 .page1{
   margin-top: 12%;
 	height: 500px;
-}
-
-.container-burger{
-	position: fixed;
-	margin-left: 20px;
-	margin-top: 20px;
-	display: inline-block;
-}
-
-.rond1, .rond2, .rond3{
-	margin-left: 20px;
-	width: 10px;
-	height: 10px;
-	border-radius: 10px;
-	background-color: black;
-	margin: 6px 0;
 }
 
 .menu{
@@ -130,16 +104,14 @@ body {
  }
 
  h1{
-   font-family: "Dirty Brush";
-   src: url('DirtyBrush.ttf');
+   font-family: "DirtyBrush";
    text-align: center;
-   font-size: 10em;
+   font-size: 10em !important;
    margin: 15px;
  }
 
  h2{
- 	font-family: "Dirty Brush";
- 	src: url('DirtyBrush.ttf');
+ 	font-family: "DirtyBrush";
  	font-size: 8em;
  	margin-top: 10%;
 	margin-right: 5%;
@@ -149,8 +121,7 @@ body {
  }
 
 h3{
-  font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+	font-family: "Roboto" !important;
   text-align: center;
   font-size: 2em;
   margin: 15px;
@@ -226,20 +197,21 @@ h3{
 @media only screen and (max-width: 478px) {
 }
 
+/*PAGE FRUIT ET LEGUMES */
+
 .pageFruitsduMois {
 	background-color: white;
 	width: 100%;
- 	padding-bottom:50px;
+
   }
 
 .greenBox{
 	display: grid;
 	grid-template-columns:   200px 200px 200px 200px 200px ;
-	grid-template-rows: 200px 200px 200px 200px 200px ;
+	grid-template-rows: 100px 300px 300px 300px ;
 	justify-content: center;
 	margin: 100px;
 	}
-
 
 .greenOne{
 	background-color: green;
@@ -258,12 +230,6 @@ h3{
 	width: 100%;
   }
 
-.forum_container{
-	margin-top: 150px;
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 350px;
-}
 .row{
 	display: flex;
 }
@@ -283,7 +249,7 @@ margin-left: 20%;
 
 .box_theme a{
 	font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+
 	font-size: 2em;
 	color: black;
 	text-align: center;
@@ -291,28 +257,16 @@ margin-left: 20%;
 
 .box_theme a p{
 	font-family: "Roboto";
-	src: url('Roboto-Regular.ttf');
+
 	font-size: 0.8em;
 	margin-top: 20px;
 	color: grey;
 }
 .texte{
+	width: 200px;
 	margin-top: 40px;
 	margin-bottom:60px;
 }
-.ligne2{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
 .footer{
 	background-color:#9b9b9b;
-	margin-top: 10px;
-	padding-top: 10px;
-	margin-bottom: 0px;
-}
-.footer p{
-	text-align: center;
-	padding-bottom: 10px;
 }
