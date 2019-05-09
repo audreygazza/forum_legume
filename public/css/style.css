@@ -81,18 +81,18 @@ table {
 /* Bloc titre et boutons */
 .jumbotron{
 	background-color: #79f481;
-	margin-top: 10%;
-	height: 500px;
+	height: 850px;
 }
 
 body {
- background-color: #79f481;
+ /* background-color: #79f481; */
  width:100%;
  }
 
  h1{
    font-family: "DirtyBrush";
    font-size: 10em !important;
+	 margin-top: 10%;
 	 margin-bottom: 15px;
  }
 
@@ -194,4 +194,10 @@ h2{
 }
 .footer{
 	background-color:#9b9b9b;
+}
+
+/* PAGE DISCUSSIONS */
+
+h6{
+
 }
