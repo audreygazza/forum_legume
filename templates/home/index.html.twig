@@ -154,13 +154,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="subscribeFormModalLabel">Modal title</h5>
+          <h3 class="modal-title" id="subscribeFormModalLabel">Inscription</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {{ form_start(register_form) }}
         <div class="modal-body">
+        {# <h3 class="h3 mb-3 font-weight-normal">Inscription</h3> #}
+
 
             {{ form_widget(register_form) }}
         </div>
@@ -178,21 +180,21 @@
   <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="loginFormLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        {# <div class="modal-header">
           <h5 class="modal-title" id="loginFormLabel">
             Connexion
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> #}
         <div class="modal-body">
             <form method="post">
       {% if error %}
           <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
       {% endif %}
 
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h3 class="h3 mb-3 font-weight-normal">Connexion</h3>
       <label for="inputEmail" class="sr-only">Email</label>
       <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
@@ -214,7 +216,7 @@
       #}
        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+          <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
       </div>
     </form>
 
