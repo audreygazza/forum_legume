@@ -49,20 +49,25 @@
     </div>
   </nav>
   <!-- end menu -->
-  <!-- bloc Titre et boutons -->
-  <div class="jumbotron">
-    <h1 class="display-4" id="lienPageHome">VEGGIZ</h1>
-    <h3 class="lead">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
+  <!-- Page accueil -->
+  <div class="pageAccueil">
+  <!-- bloc Titres et boutons -->
+    <div class="jumbotron">
+      <h1 class="text-center" id="lienPageHome">VEGGIZ</h1>
+      <h3 class="">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
-    <div class="row">
-      <span class="col-md-1"></span>
-      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageFruit" role="button">Fruits & Légumes</a>
-      <span class="col-md-1"></span>
-      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageMois" role="button">Mois & Saisons</a>
-      <span class="col-md-1"></span>
-      <a class="btn btn-primary main_button btn-lg col-sm-12 col-md-3" href="#lienPageForum" role="button">Forum</a>
+      <div class="row container">
+        {# <span class="col-md-1"></span> #}
+        <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageFruit" role="button">Fruits & Légumes</a>
+        <span class="col-md-1"></span>
+        <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageMois" role="button">Mois & Saisons</a>
+        <span class="col-md-1"></span>
+        <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageForum" role="button">Forum</a>
+      </div>
     </div>
   </div>
+
+
 
     <div class="pageFruitsduMois">
       <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
@@ -85,8 +90,8 @@
 
     <div class="FORUM">
       <h2 id="lienPageForum">FORUM </h2>
-      <div class="row">
-        <div class="col-lg-4 mb-4">
+      <div class="row container center-block box_theme">
+        <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
           <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
           <a href="{{ path('theme_visu', {'slug': 'coup_d_coeur_conso'}) }}">
           <div class="texte">
@@ -95,7 +100,7 @@
           </div></a>
         </div>
 
-        <div class="col-lg-4 mb-4-s-12">
+        <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
           <img src="{{ asset('img/icone-gueule.png')}}" alt="icone theme" id="icone_theme">
           <a href="{{ path('theme_visu', {'slug': 'coup_d_gueule_conso'}) }}">
           <div class="texte">
@@ -105,7 +110,7 @@
           </div></a>
         </div>
 
-        <div class="col-lg-4 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
           <img src="{{ asset('img/icone-bonplan.png')}}" alt="icone theme" id="icone_theme">
           <a href="{{ path('theme_visu', {'slug': 'bons_plans'}) }}">
             <div class="texte">
@@ -114,7 +119,7 @@
             </div>
           </a>
         </div>
-        <div class="col-lg-4 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
             <img src="{{ asset('img/icone-avis.png')}}" alt="icone theme" id="icone_theme">
             <a href="{{ path('theme_visu', {'slug': 'avis_sur_produits'}) }}">
             <div class="texte">
@@ -124,7 +129,7 @@
             </div></a>
         </div>
 
-        <div class="col-lg-4 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
             <img src="{{ asset('img/icone-conseil.png')}}" alt="icone theme" id="icone_theme">
             <a href="{{ path('theme_visu', {'slug': 'conseil'}) }}">
             <div class="texte">
@@ -149,15 +154,17 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="subscribeFormModalLabel">Modal title</h5>
+          <h3 class="modal-title" id="subscribeFormModalLabel">Inscription</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {{ form_start(register_form) }}
         <div class="modal-body">
+        {# <h3 class="h3 mb-3 font-weight-normal">Inscription</h3> #}
 
-            {{ form_widget(register_form) }}
+
+            {{ form_widget(register_form, {'attr': {'class': 'form-control'}}) }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -173,21 +180,21 @@
   <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="loginFormLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        {# <div class="modal-header">
           <h5 class="modal-title" id="loginFormLabel">
             Connexion
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> #}
         <div class="modal-body">
             <form method="post">
       {% if error %}
           <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
       {% endif %}
 
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h3 class="h3 mb-3 font-weight-normal">Connexion</h3>
       <label for="inputEmail" class="sr-only">Email</label>
       <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
@@ -209,7 +216,7 @@
       #}
        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+          <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
       </div>
     </form>
 
@@ -218,6 +225,7 @@
     </div>
   </div>
   <!-- end popup login -->
+</div>
 
 
 
