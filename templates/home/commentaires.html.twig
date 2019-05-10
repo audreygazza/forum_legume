@@ -11,7 +11,10 @@
 {% block body %}
 <ul>
   {% for commentaire in commentaires %}
-  <li>{{ commentaire.content }}</li>
+  <li>
+  <p> {{ commentaire.content }} <br>
+    Créé le : {{ commentaire.createdAt | date('d - m - Y') }} par {{ commentaire.user.pseudo }}
+   </p></li>
   {% endfor %}
 </ul>
 {% endblock %}
