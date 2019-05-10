@@ -177,6 +177,11 @@ padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
 }
+.fond{
+	background-color: red;
+	width: 100%;
+	padding: 10px;
+}
 
 .box_theme a{
 	font-family: "RobotoMedium";

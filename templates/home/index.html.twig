@@ -17,7 +17,7 @@
 
 {% block body %}
 <!-- bloc principal -->
-<div class="container-fluid">
+
   <!-- Menu -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -188,7 +188,9 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
+          <div class="fond">
             <img class="d-block w-100" src="{{ asset('img/Desert.jpg')}}" alt="First slide">
+            </div>
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="{{ asset('img/koala.jpg')}}" alt="Second slide">
@@ -232,6 +234,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+        </div>
         </div>
 
 
@@ -386,10 +389,16 @@
     </div>
   </div>
   <!-- end popup login -->
-</div>
+
 <!-- end Bloc principal -->
 
 
+
+
+
+{% endblock %}
+
+{% block modal %}
 
 
 
