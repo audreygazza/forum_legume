@@ -81,7 +81,7 @@ table {
 /* Bloc titre et boutons */
 .jumbotron{
 	background-color: #79f481;
-	height: 850px;
+	height: 880px;
 }
 
 body {
@@ -92,7 +92,7 @@ body {
  h1{
    font-family: "DirtyBrush";
    font-size: 10em !important;
-	 margin-top: 10%;
+	 margin-top: 13%;
 	 margin-bottom: 15px;
  }
 
@@ -104,19 +104,22 @@ h3{
 }
 
 /* Boutons */
- .row{          /*inutile */
-	margin: 0px !important;
-	text-align: center !important;
+ .box_boutons{
+	margin-top: 120px !important;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .main_button{
 	border-style: none;
   box-shadow: 7px 7px 1px black;
-	margin-bottom: 20px !important;
+	/* margin-bottom: 20px !important; */
  	background-color: white !important;
 	color : #000 !important;
 	font-size: 1.25em;
 	border-radius: 10px;
+	display: flex;
+	justify-content: center;
 }
 
 
@@ -125,7 +128,7 @@ h3{
 h2{
  font-family: "DirtyBrush";
  font-size: 8em;
- margin-top: 10%;
+ margin-top: 3%;
  margin-right: 5%;
  margin-bottom: 5%;
  padding-top: 50px;
@@ -171,10 +174,18 @@ h2{
 #icone_theme{
 	width: 100px;
 	margin-bottom: 15px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .imgEtTxt{
 	margin-bottom: 65px;
+}
+
+.box_theme{
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .box_theme a{
