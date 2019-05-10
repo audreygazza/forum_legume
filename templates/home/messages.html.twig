@@ -13,11 +13,15 @@
 <ul>
   {% for message in messages %}
   <li><p>{{ message.content }}</p>
+  <p>Rédigé par : {{ message.user.pseudo }}<br>
+  {{ message.createdAt | date('d - m - Y') }}
+  </p>
     <a href="{{ path('commentaire_create', {'idMessage': message.id}) }}">Écrire un commentaire</a>
     <ul>
     {% for commentaire in message.commentaires %}
       <li>
         {{commentaire.content}}<br>
+        Créé le : {{ commentaire.createdAt | date('d - m - Y') }} par {{ commentaire.user.pseudo }}
        </li>
     {% endfor %}
     </ul>
