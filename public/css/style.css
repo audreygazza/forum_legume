@@ -106,20 +106,18 @@ h3{
 /* Boutons */
  .box_boutons{
 	margin-top: 120px !important;
-	margin-left: auto;
-	margin-right: auto;
+	display: flex;
+	justify-content: center;
 }
 
 .main_button{
 	border-style: none;
   box-shadow: 7px 7px 1px black;
-	/* margin-bottom: 20px !important; */
+	margin-bottom: 20px !important;
  	background-color: white !important;
 	color : #000 !important;
 	font-size: 1.25em;
 	border-radius: 10px;
-	display: flex;
-	justify-content: center;
 }
 
 
@@ -210,7 +208,23 @@ h2{
 }
 
 /* PAGE DISCUSSIONS */
+.box_page_discussion{
+	margin-top: 100px;
+}
+.box_page_discussion li a{
+	text-decoration: none;
+}
 
 h6{
+	margin-bottom: 50px;
+	font-family: 'DirtyBrush';
+	font-size: 5em;
+	text-align: center;
+}
 
+.boutons_discussion{
+	display: flex;
+	justify-content: center;
+	/* margin-left: auto; */
+	/* margin-right: 0; */
 }

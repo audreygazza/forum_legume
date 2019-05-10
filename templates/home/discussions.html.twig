@@ -41,14 +41,20 @@
   </div>
 </nav>
 <!-- end menu -->
-<div class="">
+<div class="box_page_discussion">
   <h6>VEGGIZ</h6>
-    <ul class="container list-group">
+  {# <h3>FORUM</h3> #}
+    <ul class="container list-group discussion_liste">
       {% for discussion in discussions %}
       <li class="list-group-item list-group-item-action"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
       {% endfor %}
     </ul>
-    <a href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a><br>
-    <a href="{{ path('home')}}">Retour</a>
+    <br>
+    <div class="container boutons_discussion">
+      <a class="btn btn-primary btn-sm col-sm- col-md- col-lg-" href="{{ path('home')}}#lienPageForum">Retour</a>
+      <a class="btn btn-primary btn-sm col-sm- col-md- col-lg-" href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a>
+    </div>
+
+
     </div>
   {% endblock %}
