@@ -6,7 +6,57 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div class="container-fluid">
+    {% block nav %}
+
+    <!-- Menu -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{path ('home') }}">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lienPageFruit">FRUITS DU MOIS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lienPageMois">MOIS & SAISONS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lienPageForum">FORUM</a>
+          </li>
+        </ul>
+        {% if app.request.pathInfo == '/home' %}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
+            <a class="nav-link" href="#">Inscription</a>
+          </li>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <li class="nav-item"><a class="nav-link" href="{{ path('logout_route') }}">Se déconnecter</a>
+          </li>
+          {% else %}
+            <li class="nav-item" data-toggle="modal" data-target="#loginForm">
+              <a class="nav-link" href="#">Connexion</a>
+            </li>
+        {% endif %}
+        {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+    <!-- end menu -->
+
+    {% endblock %}
+        {% block body %}
+
+        {% endblock %}
+        </div>
+
+
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>

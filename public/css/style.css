@@ -81,7 +81,7 @@ table {
 /* Bloc titre et boutons */
 .jumbotron{
 	background-color: #79f481;
-	height: 850px;
+	height: 880px;
 }
 
 body {
@@ -92,7 +92,7 @@ body {
  h1{
    font-family: "DirtyBrush";
    font-size: 10em !important;
-	 margin-top: 10%;
+	 margin-top: 13%;
 	 margin-bottom: 15px;
  }
 
@@ -104,9 +104,10 @@ h3{
 }
 
 /* Boutons */
- .row{          /*inutile */
-	margin: 0px !important;
-	text-align: center !important;
+ .box_boutons{
+	margin-top: 120px !important;
+	display: flex;
+	justify-content: center;
 }
 
 .main_button{
@@ -125,24 +126,18 @@ h3{
 h2{
  font-family: "DirtyBrush";
  font-size: 8em;
- margin-top: 10%;
+ margin-top: 3%;
  margin-right: 5%;
  margin-bottom: 5%;
  padding-top: 50px;
  text-align: right;
 }
 
-.pageFruitsduMois {
-	background-color: white;
-	width: 100%;
-}
 
 .greenBox{
-	display: grid;
-	grid-template-columns:   200px 200px 200px 200px 200px ;
-	grid-template-rows: 100px 300px 300px 300px ;
-	justify-content: center;
-	margin: 100px;
+width: 100%;
+height: 20vh;
+padding: 20px;
 	}
 
 .greenOne{
@@ -160,8 +155,6 @@ h2{
 
 /* PAGE MOIS&SAISONS */
 
-
-
 /* PAGE FORUM */
 .FORUM {
 	background-color: white;
@@ -171,10 +164,23 @@ h2{
 #icone_theme{
 	width: 100px;
 	margin-bottom: 15px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .imgEtTxt{
 	margin-bottom: 65px;
+}
+
+.box_theme{
+	margin-left: auto;
+	margin-right: auto;
+}
+.fond{
+	background-color: red;
+	width: 100%;
+	padding: 10px;
 }
 
 .box_theme a{
@@ -199,7 +205,23 @@ h2{
 }
 
 /* PAGE DISCUSSIONS */
+.box_page_discussion{
+	margin-top: 100px;
+}
+.box_page_discussion li a{
+	text-decoration: none;
+}
 
 h6{
+	margin-bottom: 50px;
+	font-family: 'DirtyBrush';
+	font-size: 5em;
+	text-align: center;
+}
 
+.boutons_discussion{
+	display: flex;
+	justify-content: center;
+	/* margin-left: auto; */
+	/* margin-right: 0; */
 }
