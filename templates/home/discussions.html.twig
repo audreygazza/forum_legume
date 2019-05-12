@@ -10,12 +10,12 @@
 
 {% block body %}
 
-<div class="box_page_discussion">
+<div class="box_pages">
   <h6>VEGGIZ</h6>
   {# <h3>FORUM</h3> #}
   <div class="container boutons_discussion">
     <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_retour" href="{{ path('home')}}#lienPageForum">Retour</a>
-    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_NouvelleDiscussion" href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a>
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_NouveauContenu" href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a>
   </div>
   <br>
     <ul class="container list-group discussion_liste">

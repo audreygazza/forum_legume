@@ -9,27 +9,42 @@
 {% endblock %}
 
 {% block body %}
-<h1>{{ title }}</h1>
-<ul>
-  {% for message in messages %}
-  <li><p>{{ message.content }}</p>
-  <p>Rédigé par : {{ message.user.pseudo }}<br>
-  {{ message.createdAt | date('d - m - Y') }}
-  </p>
-    <a href="{{ path('commentaire_create', {'idMessage': message.id}) }}">Écrire un commentaire</a>
-    <ul>
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+  <h3>{{ title }}</h3>
+  <div class="container boutons_discussion">
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_retour" href="{{ path('theme_visu',{'slug':slug })}}">Retour</a>
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_NouveauContenu" href="{{ path('message_create', {'idDiscussion': discussion_id}) }}">Nouveau message</a><br>
+  </div>
+  <br>
+  <ul class="container list-group box_messages_commentaires">
+    {% for message in messages %}
+    <li class="list-group-item messages_liste col-sm-10 col-md-8 col-lg-6">
+      <p class="pseudo">{{ message.user.pseudo }}</p>
+      <p class="date">{{ message.createdAt | date('d/m/Y') }}</p>
+      <br>
+      <p class="message_content">{{ message.content }}</p>
+
+      <a href="{{ path('commentaire_create', {'idMessage': message.id}) }}">Répondre</a>
+
+    </li>
+
+    <ul class="list-group">
     {% for commentaire in message.commentaires %}
-      <li>
-        {{commentaire.content}}<br>
-        Créé le : {{ commentaire.createdAt | date('d - m - Y') }} par {{ commentaire.user.pseudo }}
+      <li class="list-group-item commentaires_liste col-sm-10 col-md-8 col-lg-6">
+        <p class="pseudo">{{ commentaire.user.pseudo }}</p>
+        <p class="date">{{ commentaire.createdAt | date('d/m/Y') }}</p>
+        <br>
+        <p class="message_content">{{commentaire.content}}</p>
        </li>
     {% endfor %}
     </ul>
-  </li>
-  {% endfor %}
-</ul>
-  <a href="{{ path('message_create', {'idDiscussion': discussion_id}) }}">Créer un nouveau message</a><br>
-  <a href="{{ path('theme_visu',{'slug':slug })}}">Retour</a>
+    {% endfor %}
+
+  </ul>
+
+</div>
+
 
 
 {% endblock %}
