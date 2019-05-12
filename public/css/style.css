@@ -105,25 +105,25 @@ table {
 
 /* PAGE ACCUEIL */
 
-/* Bloc titre et boutons */
-.jumbotron{
-	background-color: #79f481;
-	height: 850px;
-}
+	/* Bloc titre et boutons */
+	.jumbotron{
+		background-color: #79f481;
+		height: 850px;
+	}
 
-body {
- /* background-color: #79f481; */
- width:100%;
- }
+	body {
+	 /* background-color: #79f481; */
+	 width:100%;
+	 }
 
- h1{
-   font-family: "DirtyBrush";
-   font-size: 10em !important;
-	 margin-top: 13%;
-	 margin-bottom: 15px;
-	 margin-left: auto;
-	 margin-right: auto;
- }
+	 h1{
+	   font-family: "DirtyBrush";
+	   font-size: 10em !important;
+		 margin-top: 13%;
+		 margin-bottom: 15px;
+		 margin-left: auto;
+		 margin-right: auto;
+	 }
 
 
 		@include media-breakpoint-up(sm) {
@@ -206,130 +206,144 @@ padding: 20px;
 /* PAGE MOIS&SAISONS */
 
 /* PAGE FORUM */
-.FORUM {
-	background-color: white;
-	width: 100%;
-  }
+	.FORUM {
+		background-color: white;
+		width: 100%;
+	  }
 
-#icone_theme{
-	width: 100px;
-	margin-bottom: 15px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+	#icone_theme{
+		width: 100px;
+		margin-bottom: 15px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-.imgEtTxt{
-	margin-bottom: 65px;
-}
+	.imgEtTxt{
+		margin-bottom: 65px;
+	}
 
-.box_theme{
-	margin-left: auto;
-	margin-right: auto;
-}
-.fond{
-	background-color: red;
-	width: 100%;
-	padding: 10px;
-}
+	.box_theme{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.fond{
+		background-color: red;
+		width: 100%;
+		padding: 10px;
+	}
 
-.box_theme a{
-	font-family: "RobotoMedium";
-	text-decoration: none;
-	font-size: 1em;
-	color: black;
-	text-align: center;
-}
+	.box_theme a{
+		font-family: "RobotoMedium";
+		text-decoration: none;
+		font-size: 1em;
+		color: black;
+		text-align: center;
+	}
 
-.box_theme a p{
-	font-family: "Roboto";
-	font-size: 1em;
-	margin-top: 20px;
-	color: grey;
-}
-.texte{
-	padding: 0 15% 0 15%;
-}
-.footer{
-	background-color:#9b9b9b;
-	color: white;
-}
+	.box_theme a p{
+		font-family: "Roboto";
+		font-size: 1em;
+		margin-top: 20px;
+		color: grey;
+	}
+	.texte{
+		padding: 0 15% 0 15%;
+	}
+	.footer{
+		background-color:#9b9b9b;
+		color: white;
+	}
 
 /* PAGE DISCUSSIONS */
-.box_page_discussion{
-	margin-top: 100px;
-}
-.box_page_discussion li a{
-	text-decoration: none;
-}
+	.box_pages{
+		margin-top: 100px;
+	}
+	.box_pages li a{
+		text-decoration: none;
+	}
 
-h6{
-	margin-bottom: 50px;
-	font-family: 'DirtyBrush';
-	font-size: 5em;
-	text-align: center;
-}
+	h6{
+		margin-bottom: 50px;
+		font-family: 'DirtyBrush';
+		font-size: 5em;
+		text-align: center;
+	}
 
-/* boutons page discussion */
+	/* boutons page discussion */
 
-.boutons_discussion{
-	display: flex;
-	justify-content: center;
-	margin-bottom: 15px;
-}
-.bouton_retour{
-	background-color: #79f481;
-	border-color: #79f481;
-	margin-right: 10px;
-}
-.bouton_retour:hover{
-	background-color: #31DE3C;
-	border-color: #31DE3C;
-}
-.bouton_NouvelleDiscussion{
-	background-color: #79f481;
-	border-color: #79f481;
-}
-.bouton_NouvelleDiscussion:hover{
-	background-color: #31DE3C;
-	border-color: #31DE3C;
-}
+	.boutons_discussion{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 15px;
+	}
+	.bouton_retour{
+		background-color: #79f481;
+		border-color: #79f481;
+		margin-right: 10px;
+	}
+	.bouton_retour:hover{
+		background-color: #31DE3C;
+		border-color: #31DE3C;
+	}
+	.bouton_NouveauContenu{
+		background-color: #79f481;
+		border-color: #79f481;
+	}
+	.bouton_NouveauContenu:hover{
+		background-color: #31DE3C;
+		border-color: #31DE3C;
+	}
 
-.list-group-item{
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #f8f9fa;
-	border: none;
-	border-bottom: 4px solid #79f481;
-}
-.list-group-item:hover{
-	background-color: #F5F2EE;
-}
-.list-group-item a{
-	color: grey;
-}
+	.list-group-item{
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #f8f9fa;
+		border: none;
+		border-bottom: 4px solid #79f481;
+	}
+	.list-group-item:hover{
+		background-color: #F5F2EE;
+	}
+	.list-group-item a{
+		color: grey;
+	}
 
-.list-group-item:first-child {
-	border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-}
-.list-group-item:last-child {
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
+	.list-group-item:first-child {
+		border-top-left-radius: 0px;
+	  border-top-right-radius: 0px;
+	}
+	.list-group-item:last-child {
+	  border-bottom-right-radius: 0px;
+	  border-bottom-left-radius: 0px;
+	}
 
 /* PAGE CREER DISCUSSIONS */
-.box_CreerDiscussion{
-	margin-top: 100px;
-}
-.bouton_CreerDiscussion{
-	display: flex;
-	justify-content: center;
-	background-color: #79f481;
-	border-color: #79f481;
-	margin: 20px auto auto auto;
-}
-.bouton_CreerDiscussion:hover{
-	background-color: #31DE3C;
-	border-color: #31DE3C;
-}
+	.bouton_CreerDiscussion{
+		display: flex;
+		justify-content: center;
+		background-color: #79f481;
+		border-color: #79f481;
+		margin: 20px auto auto auto;
+	}
+	.bouton_CreerDiscussion:hover{
+		background-color: #31DE3C;
+		border-color: #31DE3C;
+	}
+
+	/* PAGE MESSAGES */
+		.messages_liste:hover{
+			background-color: #f8f9fa;
+		}
+		.commentaires_liste:hover{
+			background-color: #f8f9fa;
+		}
+		.pseudo{
+			text-transform: uppercase;
+		}
+		.date{
+			color: grey;
+		}
+		.message_content{
+			color: grey;
+		}
