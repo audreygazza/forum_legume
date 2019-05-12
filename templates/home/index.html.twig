@@ -60,7 +60,7 @@
   <div class="pageAccueil">
   <!-- bloc Titres et boutons -->
     <div class="jumbotron">
-      <h1 class="text-center" id="lienPageHome">VEGGIZ</h1>
+      <h1 class="text-center col-lg-5 col-md-6 col-sm-9" id="lienPageHome">VEGGIZ</h1>
       <h3 class="">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
       <div class="row container box_boutons">
@@ -78,7 +78,7 @@
 
 
     <div class="pageFruitsduMois">
-      <h2 id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
+      <h2 class="text-right" id="lienPageFruit">FRUITS & LEGUMES DU MOIS </h2>
 
       <div class="container">
 
@@ -168,7 +168,7 @@
     </div>
 
     <div class="Mois&Saisons">
-      <h2 id="lienPageMois">MOIS & SAISONS </h2>
+      <h2 class="text-right" id="lienPageMois">MOIS & SAISONS </h2>
 
         <div id="carouselMois" class="carousel slide container" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -240,7 +240,7 @@
 
     <!-- PAGE FORUM -->
     <div class="FORUM">
-      <h2 id="lienPageForum">FORUM </h2>
+      <h2 class="text-right" id="lienPageForum">FORUM </h2>
       <div class="row container box_theme">
         <div class="col-lg-4 col-md-6 col-sm-12 imgEtTxt">
           <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
@@ -312,27 +312,27 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {{ form_start(register_form) }}
-        <div class="modal-body">
-        {# <h3 class="h3 mb-3 font-weight-normal">Inscription</h3> #}
+    {{ form_start(register_form) }}
+    <div class="modal-body">
+      {# <h3 class="h3 mb-3 font-weight-normal">Inscription</h3> #}
 
-    <div class="">
-      {{ form_label(register_form.email, null, {'label_attr': {'class': 'sr-only'}}) }}
-      {{ form_widget(register_form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
-    </div>
-    <div class="">
-      {{ form_label(register_form.password, null, {'label_attr': {'class': 'sr-only'}}) }}
-      {{ form_widget(register_form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
-    </div>
-    <div class="">
-      {{ form_label(register_form.pseudo, null, {'label_attr': {'class': 'sr-only'}}) }}
-      {{ form_widget(register_form.pseudo, {'attr': {'class': 'form-control', 'placeholder': 'Pseudo'}}) }}
-    </div>
-
+        <div class="">
+          {{ form_label(register_form.email, null, {'label_attr': {'class': 'sr-only'}}) }}
+          {{ form_widget(register_form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
         </div>
+        <div class="">
+          {{ form_label(register_form.password, null, {'label_attr': {'class': 'sr-only'}}) }}
+          {{ form_widget(register_form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+        </div>
+        <div class="">
+          {{ form_label(register_form.pseudo, null, {'label_attr': {'class': 'sr-only'}}) }}
+          {{ form_widget(register_form.pseudo, {'attr': {'class': 'form-control', 'placeholder': 'Pseudo'}}) }}
+        </div>
+
+    </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-primary" name="register" value="s'inscrire">
+          <input type="submit" class="btn btn-lg btn-primary bouton_Sinscrire" name="register" value="S'inscrire">
         </div>
         {{ form_end(register_form) }}
       </div>
@@ -380,7 +380,7 @@
       #}
        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
+          <button class="btn btn-lg btn-primary bouton_SeConnecter" type="submit">Se connecter</button>
       </div>
     </form>
 
