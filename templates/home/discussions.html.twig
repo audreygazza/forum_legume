@@ -14,13 +14,13 @@
   <h6>VEGGIZ</h6>
   {# <h3>FORUM</h3> #}
   <div class="container boutons_discussion">
-    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg-" href="{{ path('home')}}#lienPageForum">Retour</a>
-    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg-" href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a>
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_retour" href="{{ path('home')}}#lienPageForum">Retour</a>
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_NouvelleDiscussion" href="{{ path('discussion_create', {'slug': theme_slug}) }}">Créer une discussion</a>
   </div>
   <br>
     <ul class="container list-group discussion_liste">
       {% for discussion in discussions %}
-      <li class="list-group-item list-group-item-action"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
+      <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
       {% endfor %}
     </ul>
     <br>
