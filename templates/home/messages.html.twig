@@ -17,23 +17,28 @@
     <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_NouveauContenu" href="{{ path('message_create', {'idDiscussion': discussion_id}) }}">Nouveau message</a><br>
   </div>
   <br>
-  <ul class="container list-group box_messages_commentaires">
+  <div class=" list-group box_messages_commentaires">
+  <ul class="container list-group col-sm-10 col-md-8 col-lg-6">
     {% for message in messages %}
-    <li class="list-group-item messages_liste col-sm-10 col-md-8 col-lg-6">
-      <p class="pseudo">{{ message.user.pseudo }}</p>
-      <p class="date">{{ message.createdAt | date('d/m/Y') }}</p>
+    <li class="list-group-item messages_liste col-sm-6 col-md-8 col-lg-8">
+      <div class="row">
+      <p class="pseudo col-sm-6 col-md-6 col-lg-6">{{ message.user.pseudo }}</p>
+      <p class="date col-sm-6 col-md-6 col-lg-6">{{ message.createdAt | date('d/m/Y') }}</p>
+      </div>
       <br>
       <p class="message_content">{{ message.content }}</p>
-
-      <a href="{{ path('commentaire_create', {'idMessage': message.id}) }}">Répondre</a>
+      <br>
+      <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_Repondre" href="{{ path('commentaire_create', {'idMessage': message.id}) }}">Répondre</a>
 
     </li>
 
-    <ul class="list-group">
+    <ul class="list-group ">
     {% for commentaire in message.commentaires %}
-      <li class="list-group-item commentaires_liste col-sm-10 col-md-8 col-lg-6">
-        <p class="pseudo">{{ commentaire.user.pseudo }}</p>
-        <p class="date">{{ commentaire.createdAt | date('d/m/Y') }}</p>
+      <li class="list-group-item commentaires_liste col-sm-6 col-md-8 col-lg-8">
+        <div class="row">
+        <p class="pseudo col-sm-6 col-md-6 col-lg-6">{{ commentaire.user.pseudo }}</p>
+        <p class="date col-sm-6 col-md-6 col-lg-6">{{ commentaire.createdAt | date('d/m/Y') }}</p>
+        </div>
         <br>
         <p class="message_content">{{commentaire.content}}</p>
        </li>
@@ -42,6 +47,8 @@
     {% endfor %}
 
   </ul>
+  </div>
+
 
 </div>
 
