@@ -20,13 +20,13 @@
             <a class="nav-link" href="{{path ('home') }}">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#lienPageFruit">FRUITS DU MOIS</a>
+            <a class="nav-link" href="{{ path('home')}}#lienPageFruit">FRUITS DU MOIS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#lienPageMois">MOIS & SAISONS</a>
+            <a class="nav-link" href="{{ path('home')}}#lienPageMois">MOIS & SAISONS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#lienPageForum">FORUM</a>
+            <a class="nav-link" href="{{ path('home')}}#lienPageForum">FORUM</a>
           </li>
         </ul>
         {% if app.request.pathInfo == '/home' %}

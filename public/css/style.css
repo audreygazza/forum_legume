@@ -67,6 +67,7 @@ table {
 	font-family: "DirtyBrush";
 	src: url("../typo/DirtyBrush.ttf");
 }
+/* halo bootstrap */
 
 /* Bloc principal */
 .container-fluid{
@@ -104,10 +105,10 @@ table {
 
 
 /* PAGE ACCUEIL */
-
 	/* Bloc titre et boutons */
 	.jumbotron{
 		background-color: #79f481;
+		/* background-size: cover; */
 		height: 850px;
 	}
 
@@ -332,18 +333,40 @@ padding: 20px;
 	}
 
 	/* PAGE MESSAGES */
+		.messages_liste{
+			margin-left: 0px;
+			margin-bottom: 20px;
+			margin-top: 20px;
+		}
 		.messages_liste:hover{
 			background-color: #f8f9fa;
+		}
+		.commentaires_liste{
+			margin-right: 0px;
+			margin-bottom: 20px;
 		}
 		.commentaires_liste:hover{
 			background-color: #f8f9fa;
 		}
+		.bouton_Repondre {
+			background-color: #79f481;
+			border-color: #79f481;
+		}
+		.bouton_Repondre:hover{
+			background-color: #31DE3C;
+			border-color: #31DE3C;
+		}
 		.pseudo{
+			font-family: 'RobotoMedium';
 			text-transform: uppercase;
 		}
 		.date{
 			color: grey;
+			text-align: right;
+			font-size: 0.7em;
 		}
 		.message_content{
 			color: grey;
+			text-align: justify;
+			font-size: 0.9em;
 		}

@@ -9,10 +9,28 @@
 {% endblock %}
 
 {% block body %}
+<div class="box_pages">
+
+<div class="box_pages">
+  <div class="container boutons_discussion">
+    <a class="btn btn-primary btn-sm col-sm- col-md- col-lg- bouton_retour" href="{{ path('message_visu',{'id': discussion_id })}}">Retour</a>
+  </div>
+  <br>
+
   {{ form_start(form_create) }}
-  {{ form_widget(form_create) }}
-    <input type="submit" name="submit" value="Enregistrer">
-  {{ form_end(form_create) }}
+
+  <div class="modal-body container col-sm-10 col-md-8 col-lg-6">
+    <h6></h6>
+    <h3>Rédiger un nouveau message</h3>
+
+    {{ form_label(form_create.content, null, {'label_attr': {'class': 'sr-only'}} ) }}
+    {{ form_widget(form_create.content, {'attr': {'class': 'form-control', 'placeholder': 'Rédigez votre message'}}) }}
+      <input type="submit" class="btn btn-md btn-primary bouton_CreerDiscussion" name="submit" value="Enregistrer">
+  </div>
+
+{{ form_end(form_create) }}
+</div>
+
 
 
 {% endblock %}
