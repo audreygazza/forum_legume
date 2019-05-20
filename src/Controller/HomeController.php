@@ -78,9 +78,10 @@ class HomeController extends AbstractController
      */
     public function themeShow(Theme $theme, DiscussionRepository $repository)
     {
-      $themeId = $theme-> getId();
+      $themeId = $theme->getId();
       $discussions = $repository-> findByThemeId($themeId);
       return $this->render('home/discussions.html.twig', [
+        'theme_title'=>$theme->getName(),
         'discussions'=>$discussions,
         'theme_slug'=>$theme->getSlug()
       ]);
@@ -143,7 +144,8 @@ class HomeController extends AbstractController
       }
 
       return $this->render('home/discussion_create.html.twig', [
-        'form_create'=>$form->createView()
+        'form_create'=>$form->createView(),
+        'slug' => $slug,
       ]);
     }
 
@@ -176,7 +178,8 @@ class HomeController extends AbstractController
       }
 
       return $this->render('home/message_create.html.twig', [
-        'form_create'=>$form->createView()
+        'form_create'=>$form->createView(),
+        'discussion_id'=>$idDiscussion
       ]);
     }
 
@@ -206,12 +209,14 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('message_visu', [
           'id' => $commentaire->getMessage()->getDiscussion()->getId(),
-          'slug'=> $commentaire->getMassage()->getDiscussion()->getSlug()
+          'slug'=> $commentaire->getMessage()->getDiscussion()->getSlug()
         ]);
       }
 
       return $this->render('home/commentaire_create.html.twig', [
-        'form_create'=>$form->createView()
+        'form_create'=>$form->createView(),
+        'pseudo'=>$message->getUser()->getPseudo(),
+        'discussion_id'=>$message->getDiscussion()->getId()
       ]);
     }
 
