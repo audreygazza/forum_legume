@@ -209,7 +209,7 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('message_visu', [
           'id' => $commentaire->getMessage()->getDiscussion()->getId(),
-          'slug'=> $commentaire->getMessage()->getDiscussion()->getSlug()
+          'slug'=> $message->getDiscussion()->getTheme()->getSlug()
         ]);
       }
 
