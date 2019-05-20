@@ -158,14 +158,23 @@ class HomeController extends AbstractController
       EntityManagerInterface $manager,
       DiscussionRepository $repository
     ) {
+
+
       $discussion = $repository->find($idDiscussion);
 
       $message = new Message();
       $form = $this->createFormBuilder($message)
         ->add('content', TextareaType::class)
         ->getForm();
+
       $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
+      dump($this->getUser());
+      if ($form->isSubmitted() && is_null($this->getUser())){
+      $this->addFlash('warning', 'Vous devez être connecté. <a href="'.$this->generateUrl(
+          'app_login').'">Connectez-vous</a> ou <a href="'.$this->generateUrl('register').'"> Inscrivez-vous</a>');
+      }
+
+      if ($form->isSubmitted() && $form->isValid() && !is_null($this->getUser())) {
         $message->setTitle($discussion->getTitle())
           ->setUser($this->getUser())
           ->setDiscussion($discussion);
@@ -201,7 +210,11 @@ class HomeController extends AbstractController
         ->add('content', TextareaType::class)
         ->getForm();
       $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
+      if ($form->isSubmitted() && is_null($this->getUser())){
+        $this->addFlash('warning', 'Vous devez être connecté. <a href="'.$this->generateUrl(
+            'app_login').'">Connectez-vous</a> ou <a href="'.$this->generateUrl('register').'"> Inscrivez-vous</a>');
+      }
+      if ($form->isSubmitted() && $form->isValid() && !is_null($this->getUser())) {
         $commentaire->setUser($this->getUser())
           ->setMessage($message);
         $manager->persist($commentaire);

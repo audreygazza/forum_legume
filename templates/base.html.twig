@@ -29,7 +29,7 @@
             <a class="nav-link" href="{{ path('home')}}#lienPageForum">FORUM</a>
           </li>
         </ul>
-        {% if app.request.pathInfo == '/home' %}
+        {#% if app.request.pathInfo == '/home' %#}
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
             <a class="nav-link" href="#">Inscription</a>
@@ -42,7 +42,7 @@
               <a class="nav-link" href="#">Connexion</a>
             </li>
         {% endif %}
-        {% endif %}
+        {#% endif %#}
 
         </ul>
       </div>
@@ -50,9 +50,18 @@
     <!-- end menu -->
 
     {% endblock %}
+    {% for message in app.flashes('warning') %}
+       <div class="box_pages alert alert-warning">
+           {{ message | raw }}
+       </div>
+   {% endfor %}
         {% block body %}
 
         {% endblock %}
+
+
+
+
         </div>
 
 
