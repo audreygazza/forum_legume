@@ -2,13 +2,31 @@
 
 {% block title %}Hello AdminController!{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<h1> Page Admin </h1>
-<a href="{{ path('user_index') }}">Gestion des utilisateurs</a><br>
-<a href="{{ path('theme_index') }}">Gestion des thèmes</a><br>
-<a href="{{ path('discussion_index') }}">Gestion des discussions</a><br>
-<a href="{{ path('message_index') }}">Gestion des messages</a><br>
-<a href="{{ path('commentaire_index') }}">Gestion des commentaires</a>
+<div class="box_pages">
+  <div class="modal-body container col-sm-10 col-md-8 col-lg-6">
+    <h6>VEGGIZ</h6>
+      <h3> Page Admin </h1>
+        <div class="container list-group discussion_liste">
+          <ul>
+            <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('user_index') }}">Gestion des utilisateurs</a></li>
+            <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('theme_index') }}">Gestion des thèmes</a></li>
+            <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('discussion_index') }}">Gestion des discussions</a></li>
+            <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('message_index') }}">Gestion des messages</a></li>
+            <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('commentaire_index') }}">Gestion des commentaires</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
 
 {% endblock %}
