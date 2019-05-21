@@ -283,6 +283,7 @@ class HomeController extends AbstractController
         if (is_null($this->getUser())) {
           throw new \Exception("Vous devez vous connecter", 1);
         }
+        dump($this->getUser());
         $person = $repository->findOneBy(['user' => $this->getUser()]);
         dump($person);
         if ($person->getImage()) {
