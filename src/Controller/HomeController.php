@@ -7,16 +7,21 @@ use App\Entity\Discussion;
 use App\Entity\Message;
 use App\Entity\Theme;
 use App\Entity\Commentaire;
+use App\Entity\Person;
 use App\Repository\MessageRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\DiscussionRepository;
 use App\Repository\CommentaireRepository;
+use App\Repository\PersonRepository;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -265,4 +270,64 @@ class HomeController extends AbstractController
         'register_form'=> $form->createView()
       ]);
     }
+
+    /**
+     * @Route("/account", name="account", methods={"GET", "POST"})
+     */
+    public function editAccount(
+      Request $request,
+      EntityManagerInterface $manager,
+      PersonRepository $repository
+      )
+      {
+        if (is_null($this->getUser())) {
+          throw new \Exception("Vous devez vous connecter", 1);
+        }
+        dump($this->getUser());
+        $person = $repository->findOneBy(['user' => $this->getUser()]);
+        dump($person);
+        if ($person->getImage()) {
+            $person->setImage(
+                new File ($this->getParameter('photo') . '/' . $person->getImage())
+            );
+        }
+
+        $form = $this->createFormBuilder($person)
+
+            ->add('image', FileType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'account.%name%',
+                'required' => false,
+            ])
+            ->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+              if($form['image']->getData()){
+                $file = $form['image']->getData();
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                $person->setImage($fileName);
+
+                try {
+                    $file->move(
+                        $this->getParameter('photo'),
+                        $fileName
+                    );
+                } catch (FileException $exception) {
+                    echo $exception->getCode() . ': ' . $exception->getMessage();
+                }
+              }
+
+                $manager->persist($person); // prepare pour envoyer a la bdd
+                $manager->flush();
+
+                return $this->redirectToRoute('home');
+
+            }
+
+            return $this->render('home/account.html.twig', [
+                'account_form' => $form->createView(),
+            ]);
+      }
 }

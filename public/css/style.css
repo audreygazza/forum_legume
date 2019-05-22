@@ -417,3 +417,38 @@ h4{
 			text-align: justify;
 			font-size: 0.9em;
 		}
+
+/* PAGES ADMIN */
+
+	/* Page admin user */
+	.entete{
+		background-color: #79f481;
+		border: 0px;
+		text-transform: uppercase;
+		font-family: 'RobotoMedium';
+	}
+	.bouton_admin{
+		background-color: #79f481;
+		border-color: #79f481;
+	}
+	.bouton_admin:hover{
+		background-color: #31DE3C;
+		border-color: #31DE3C;
+	}
+	td a{
+		color: grey;
+	}
+	td a:hover{
+		text-decoration: none;
+		color: #595959;
+	}
+
+	/* .list-group-item{
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #f8f9fa;
+		border: none;
+		border-bottom: 4px solid #79f481;
+	}
+	.list-group-item:hover{
+			background-color: #EBECED; */
