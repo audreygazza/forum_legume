@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Commentaire;
+use App\Entity\User;
+use App\Entity\Message;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

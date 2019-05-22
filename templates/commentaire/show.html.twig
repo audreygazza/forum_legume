@@ -2,8 +2,20 @@
 
 {% block title %}Commentaire{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Commentaire</h1>
+
+<div class="box_pages">
+  <div class="modal-body container col-sm-10 col-md-8 col-lg-6">
+    <h6>VEGGIZ</h6>
+    <h3>Commentaire</h3>
 
     <table class="table">
         <tbody>
@@ -22,9 +34,15 @@
         </tbody>
     </table>
 
-    <a href="{{ path('commentaire_index') }}">back to list</a>
+    <div class="container boutons_discussion">
+        <a class="btn btn-primary bouton_retour" href="{{ path('commentaire_index') }}">back to list</a>
 
-    <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">edit</a>
+        <a class="btn btn-primary bouton_retour" href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">edit</a>
 
-    {{ include('commentaire/_delete_form.html.twig') }}
+        {{ include('commentaire/_delete_form.html.twig') }}
+    </div>
+
+    </div>
+    </div>
+
 {% endblock %}

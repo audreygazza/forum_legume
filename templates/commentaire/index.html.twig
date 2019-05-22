@@ -2,11 +2,23 @@
 
 {% block title %}Commentaire index{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Commentaire index</h1>
+<div class="box_pages">
+    <h6>VEGGIZ</h6>
+    <h3>Commentaire index</h3>
+
+<div class="container">
 
     <table class="table">
-        <thead>
+        <thead class="entete">
             <tr>
                 <th>Id</th>
                 <th>Content</th>
@@ -32,6 +44,10 @@
         {% endfor %}
         </tbody>
     </table>
+      </div>
+      <div class="container boutons_discussion">
+          <a class="btn btn-primary bouton_admin" href="{{ path('commentaire_new') }}">Create new</a>
+        </div>
 
-    <a href="{{ path('commentaire_new') }}">Create new</a>
+    </div>
 {% endblock %}
