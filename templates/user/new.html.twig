@@ -14,10 +14,11 @@
 <div class="box_pages">
   <h6>VEGGIZ</h6>
     <h3>Create new User</h3>
-
+    <div class="container col-sm-10 col-md-8 col-lg-6">
     {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('user_index') }}">back to list</a>
+    <a class="btn btn-primary bouton_retour" href="{{ path('user_index') }}">Back to list</a>
+    </div>
 </div>
 
 {% endblock %}
