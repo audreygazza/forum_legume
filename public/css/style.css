@@ -452,3 +452,32 @@ h4{
 	}
 	.list-group-item:hover{
 			background-color: #EBECED; */
+
+	/* Pade admin edit user */
+	.roles{
+		height: auto;
+	}
+	.lienTexte{
+		color: grey;
+	}
+	.lienTexte:hover{
+		text-decoration: none;
+		color: #595959;
+	}
+	.position{
+		text-align: center;
+	}
+	.bouton_admin_position{
+		margin: 0 auto;
+	}
+	.bouton_admin_position a{
+		text-decoration: none;
+		color: white;
+	}
+	.bouton_admin_position a:hover{
+		text-decoration: none;
+		color: white;
+	}
+	.pb_margin{
+		margin: 10px auto;
+	}

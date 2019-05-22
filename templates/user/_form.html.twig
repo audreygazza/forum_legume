@@ -1,4 +1,16 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_label(form.email, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+
+    {{ form_label(form.roles, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.roles, {'attr': {'class': 'form-control roles', 'placeholder': ''}}) }}
+
+    {{ form_label(form.password, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+
+    {{ form_label(form.pseudo, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.pseudo, {'attr': {'class': 'form-control', 'placeholder': 'Pseudo'}}) }}
+
+    <button class="btn btn-md btn-primary bouton_CreerDiscussion">{{ button_label|default('Save') }}</button>
+    {{ form_rest(form) }}
 {{ form_end(form) }}
