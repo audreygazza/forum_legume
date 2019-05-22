@@ -40,11 +40,11 @@
     </tbody>
 </table>
 <div class="container boutons_discussion">
-  <a class="btn btn-primary bouton_retour" href="{{ path('user_index') }}">back to list</a>
+  <a class="btn btn-primary bouton_retour" href="{{ path('user_index') }}">Back to list</a>
 
-  <a class="btn btn-primary bouton_retour" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+  <a class="btn btn-primary bouton_retour" href="{{ path('user_edit', {'id': user.id}) }}">Edit</a>
 
-  <a class="btn btn-primary bouton_admin">{{ include('user/_delete_form.html.twig') }}</a>
+  <a>{{ include('user/_delete_form.html.twig') }}</a>
 </div>
 
 </div>
