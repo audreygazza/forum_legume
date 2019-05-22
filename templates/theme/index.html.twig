@@ -2,36 +2,50 @@
 
 {% block title %}Theme index{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Theme index</h1>
+<div class="box_pages">
+<h6>VEGGIZ</h6>
+  <h3>Theme index</h3>
+<div class="container">
+<table class="table">
+    <thead class="entete">
+        <tr>
+            <th>Id</th>
+            <th>{{ 'Name' | trans }}</th>
+            <th>{{ 'Description' | trans }}</th>
+            <th>{{'actions' | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for theme in themes %}
+        <tr>
+            <td>{{ theme.id }}</td>
+            <td>{{ theme.name }}</td>
+            <td>{{ theme.description }}</td>
+            <td>
+                <a href="{{ path('theme_show', {'id': theme.id}) }}">show</a>
+                <a href="{{ path('theme_edit', {'id': theme.id}) }}">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>{{ 'Name' | trans }}</th>
-                <th>{{ 'Description' | trans }}</th>
-                <th>{{'actions' | trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for theme in themes %}
-            <tr>
-                <td>{{ theme.id }}</td>
-                <td>{{ theme.name }}</td>
-                <td>{{ theme.description }}</td>
-                <td>
-                    <a href="{{ path('theme_show', {'id': theme.id}) }}">show</a>
-                    <a href="{{ path('theme_edit', {'id': theme.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<a href="{{ path('theme_new') }}">Create new</a>
+</div>
 
-    <a href="{{ path('theme_new') }}">Create new</a>
+</div>
+
 {% endblock %}
