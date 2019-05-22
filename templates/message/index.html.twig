@@ -2,11 +2,23 @@
 
 {% block title %}Message index{% endblock %}
 
-{% block body %}
-    <h1>Message index</h1>
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
 
-    <table class="table">
-        <thead>
+{% block body %}
+<div class="box_pages">
+    <h6>VEGGIZ</h6>
+    <h3>Message index</h3>
+
+    <div class="container">
+
+        <table class="table">
+            <thead class="entete">
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -34,6 +46,11 @@
         {% endfor %}
         </tbody>
     </table>
+      </div>
 
-    <a href="{{ path('message_new') }}">Create new</a>
+    <div class="container boutons_discussion">
+    <a class="btn btn-primary bouton_admin" href="{{ path('message_new') }}">Create new</a>
+    </div>
+    
+    </div>
 {% endblock %}

@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.3;
 	font-family: 'Roboto', sans-serif;
 	/*font-size: 16px;*/
 }
@@ -311,6 +311,10 @@ h4{
 		text-align: center;
 	}
 
+	.ThemeDiscussion a{
+		text-decoration: none;
+	}
+
 	/* boutons page discussion */
 
 	.boutons_discussion{
@@ -358,7 +362,9 @@ h4{
 	  border-bottom-right-radius: 0px;
 	  border-bottom-left-radius: 0px;
 	}
-
+.final{
+	margin-top: 20px;
+}
 /* PAGE CREER DISCUSSIONS */
 	.bouton_CreerDiscussion{
 		display: flex;

@@ -10,7 +10,7 @@
 
 {% block body %}
 
-<div class="box_pages">
+<div class="box_pages ThemeDiscussion">
   <h6>VEGGIZ</h6>
     <h3>{{ theme_title }}</h3>
   <div class="container boutons_discussion">
@@ -20,7 +20,8 @@
   <br>
     <ul class="container list-group discussion_liste">
       {% for discussion in discussions %}
-      <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"><a href="{{ path('message_visu', {'id': discussion.id})}}"> {{ discussion.title }}</a></li>
+      <a href="{{ path('message_visu', {'id': discussion.id})}}">
+      <li class="list-group-item list-group-item-action col-sm-10 col-md-8 col-lg-6"> {{ discussion.title }}</li></a>
       {% endfor %}
     </ul>
     <br>
