@@ -50,7 +50,7 @@ table {
 }
 
 /* FIN DU RESET*/
-html {
+/*html {
   font-size: 1rem;
 }
 
@@ -70,7 +70,7 @@ html {
   html {
     font-size: 1.6rem;
   }
-}
+}*/
 
 /* Déclaration des typo */
 @font-face{
@@ -141,13 +141,13 @@ html {
 
 	 h1{
 	   font-family: "DirtyBrush";
-	   font-size: 2em !important;
+	   font-size: 8vw !important;
 		 margin-top: 13%;
 		 margin-bottom: 15px;
 		 margin-left: auto;
 		 margin-right: auto;
 	 }
-	 @media screen and (max-width: @screen-xs) {
+	 /*@media screen and (max-width: @screen-xs) {
 	     body h2{font-size: 100px;
 				 background-color: red;
 			 }
@@ -155,13 +155,13 @@ html {
 
 	 @media (max-width: @screen-sm) {
 	     body h2{font-size: 30px;}
-	 }
+	 }*/
 
 
 h3{
 	font-family: "RobotoMedium" !important;
   text-align: center;
-  font-size: 200%;
+  font-size: 2em;
   margin: 15px 15px 5% 15px;
 }
 
@@ -190,7 +190,7 @@ h3{
 
 h2{
  font-family: "DirtyBrush";
- font-size: 10%;
+ font-size: 6vw;
  margin-top: 3%;
  margin-right: 5%;
  margin-bottom: 5%;
@@ -203,28 +203,59 @@ h2{
 width: 100%;
 height: 20vh;
 padding: 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 	}
 
 .greenOne{
-	background-color: green;
+	background-color: #79f481;
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
+
 }
 
 .greenTwo{
-	background-color: #55BE47;
+	background-color: #6CE574;
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
 }
 
 .greenThree{
-	background-color: #00AB39;
+	background-color: #36B53F;
 }
 
+.fruits{
+	max-width: 60%;
+	max-height: 60%;
+	margin-bottom: 5px;
+}
+
+h4{
+	font-family: "RobotoMedium" !important;
+  text-align: center;
+  font-size: 25px;
+}
 
 /* PAGE MOIS&SAISONS */
-
+.carousel-indicators{
+	padding-top: 30px;
+}
 /* PAGE FORUM */
 	.FORUM {
 		background-color: white;
 		width: 100%;
 	  }
+
+	h5{
+		font-size: 2vw;
+		font-family: "RobotoMedium";
+	}
 
 	#icone_theme{
 		width: 100px;
@@ -241,11 +272,6 @@ padding: 20px;
 	.box_theme{
 		margin-left: auto;
 		margin-right: auto;
-	}
-	.fond{
-		background-color: red;
-		width: 100%;
-		padding: 10px;
 	}
 
 	.box_theme a{
