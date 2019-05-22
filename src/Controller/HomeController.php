@@ -22,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,7 +34,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(ThemeRepository $repository,
                           Request $request,
@@ -248,7 +249,14 @@ class HomeController extends AbstractController
       ) {
       $user = new User();
       $form = $this->createFormBuilder($user)
-        ->add('email', EmailType::class)
+      ->add('email', EmailType::class, [
+        'constraints' => [
+          new Assert\Email([
+            'message' => 'Votre email "{{ value }}" est invalide.',
+            'checkMX' => true,
+            ])]
+
+          ])
         ->add('password', PasswordType::class)
         ->add('pseudo', TextType::class)
         ->getForm();
