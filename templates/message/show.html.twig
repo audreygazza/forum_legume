@@ -2,9 +2,20 @@
 
 {% block title %}Message{% endblock %}
 
-{% block body %}
-    <h1>Message</h1>
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
 
+{% block body %}
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Message</h3>
+
+<div class="container col-sm-10 col-md-8 col-lg-6">
     <table class="table">
         <tbody>
             <tr>
@@ -26,9 +37,15 @@
         </tbody>
     </table>
 
-    <a href="{{ path('message_index') }}">back to list</a>
+<div class="container boutons_discussion">
+    <a class="btn btn-primary bouton_retour" href="{{ path('message_index') }}">back to list</a>
 
-    <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
+    <a class="btn btn-primary bouton_retour"href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
 
-    {{ include('message/_delete_form.html.twig') }}
+    <a>{{ include('message/_delete_form.html.twig') }}</a>
+    </div>
+
+    </div>
+
+    </div>
 {% endblock %}

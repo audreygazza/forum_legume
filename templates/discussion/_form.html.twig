@@ -1,4 +1,12 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') | trans }}</button>
+    {{ form_label(form.title, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
+
+    {{ form_label(form.lastMsg, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.lastMsg, {'attr': {'class': 'form-control', 'placeholder': 'Dernier message le'}}) }}
+
+    {{ form_label(form.theme, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.theme, {'attr': {'class': 'form-control', 'placeholder': ''}}) }}
+
+    <button class="btn btn-md btn-primary bouton_CreerDiscussion">{{ button_label|default('Save') | trans }}</button>
 {{ form_end(form) }}

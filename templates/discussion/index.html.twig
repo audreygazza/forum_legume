@@ -2,11 +2,21 @@
 
 {% block title %}Discussion index{% endblock %}
 
-{% block body %}
-    <h1>Discussion index</h1>
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
 
+{% block body %}
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Discussion index</h3>
+    <div class="container col-sm-10 col-md-8 col-lg-6">
     <table class="table">
-        <thead>
+        <thead class="entete">
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -32,6 +42,11 @@
         {% endfor %}
         </tbody>
     </table>
+    <div class="container boutons_discussion">
+    <a class="btn btn-primary bouton_admin" href="{{ path('discussion_new') }}">Create new</a>
+    </div>
+  </div>
+</div>
 
-    <a href="{{ path('discussion_new') }}">Create new</a>
+
 {% endblock %}

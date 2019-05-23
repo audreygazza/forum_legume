@@ -1,4 +1,10 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') | trans }}</button>
+
+    {{ form_label(form.name, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+
+    {{ form_label(form.description, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+
+    <button class="btn btn-md btn-primary bouton_CreerDiscussion">{{ button_label|default('Save') | trans }}</button>
 {{ form_end(form) }}

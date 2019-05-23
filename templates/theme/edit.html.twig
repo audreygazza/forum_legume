@@ -2,12 +2,28 @@
 
 {% block title %}Edit Theme{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Edit Theme</h1>
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Edit Theme</h3>
+  <div class="container col-sm-10 col-md-8 col-lg-6">
+  {{ include('theme/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('theme/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('theme_index') }}">back to list</a>
-
+  <div class="boutons_discussion pb_margin">
     {{ include('theme/_delete_form.html.twig') }}
+  </div>
+
+  <button class="btn btn-md btn-primary bouton_CreerDiscussion bouton_admin_position"><a href="{{ path('theme_index') }}">Retour</a></button>
+
+  </div>
+</div>
+
 {% endblock %}

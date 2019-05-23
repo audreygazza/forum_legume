@@ -2,10 +2,24 @@
 
 {% block title %}New Commentaire{% endblock %}
 
-{% block body %}
-    <h1>Create new Commentaire</h1>
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
 
+{% block body %}
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Create new Commentaire</h3>
+
+<div class="container col-sm-10 col-md-8 col-lg-6">
     {{ include('commentaire/_form.html.twig') }}
 
-    <a href="{{ path('commentaire_index') }}">back to list</a>
+    <a class="btn btn-md btn-primary bouton_retour button_CreerDiscussion button-retour" href="{{ path('commentaire_index') }}">back to list</a>
+    </div>
+</div>
+
 {% endblock %}
