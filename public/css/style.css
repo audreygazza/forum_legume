@@ -487,3 +487,7 @@ h4{
 	.pb_margin{
 		margin: 10px auto;
 	}
+	.centrage_boutons{
+		display: flex;
+		justify-content: center;
+	}

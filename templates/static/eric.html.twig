@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Merci Éric{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="box_pages">
+<div class="container text-center">
+<h1>MERCI ERIC !!</h1>
+<h3>Surprise</h3>
+<div class="container col-sm-8 col-md-8 col-lg-6">
+<p>Eh oui, même pour te faire une surprise on a eu besoin de ton aide !! #quicheFor Ever</p>
+<br>
+<p>Merci pour ta patience (parce qu'avec nous deux il y en avait bien besoin), ta bonne humeur, ta gentillesse, ta disponibilité et merci pour tous les debug !!</p>
+</div>
+
+
+</div>
+</div>
+{% endblock %}
