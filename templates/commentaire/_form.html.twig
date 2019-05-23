@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_label(form.content, null, {'label_attr': {'class': 'sr-only'}}) }}
+{{ form_widget(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Content'}}) }}
+
+{{ form_label(form.createdAt, null, {'label_attr': {'class': 'sr-only'}}) }}
+{{ form_widget(form.createdAt, {'attr': {'class': 'form-control', 'placeholder': 'dernier message le:'}}) }}
+
+{{ form_label(form.user, null, {'label_attr': {'class': 'sr-only'}}) }}
+{{ form_widget(form.user, {'attr': {'class': 'form-control', 'placeholder': 'Content'}}) }}
+
+{{ form_label(form.message, null, {'label_attr': {'class': 'sr-only'}}) }}
+{{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Content'}}) }}
+
+
+
+    <button class="btn btn-md btn-primary bouton_CreerDiscussion"">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

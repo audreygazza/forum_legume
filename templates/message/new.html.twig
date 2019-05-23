@@ -1,11 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
+
 {% block title %}New Message{% endblock %}
 
 {% block body %}
-    <h1>Create new Message</h1>
-
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Create new Message</h3>
+<div class="container col-sm-10 col-md-8 col-lg-6">
     {{ include('message/_form.html.twig') }}
 
-    <a href="{{ path('message_index') }}">back to list</a>
+    <a class="btn btn-primary bouton_retour"  href="{{ path('message_index') }}">back to list</a>
+    </div>
+</div>
 {% endblock %}
