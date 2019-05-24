@@ -302,7 +302,7 @@ h4{
 	.footer{
 		background-color:#9b9b9b;
 		color: white;
-		font-size: 1.2vh;
+		font-size: 1.4vh;
 	}
 
 /* PAGE DISCUSSIONS */
@@ -407,7 +407,9 @@ h4{
 		.bouton_Repondre {
 			background-color: #79f481;
 			border-color: #79f481;
-			margin-left: 85%;
+			/* display:flex;
+			justify-content: center; */
+			/* margin-left: 85%; */
 		}
 		.bouton_Repondre:hover{
 			background-color: #31DE3C;

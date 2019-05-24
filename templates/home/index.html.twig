@@ -38,19 +38,21 @@
           <a class="nav-link" href="{{ path('home')}}#lienPageForum">FORUM</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right">
+      {% if is_granted('ROLE_ADMIN') %}
+      <li><a class="nav-link" href="{{ path('admin')}}">Admin</a></li>
+      {% endif %}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <li class="nav-item"><a class="nav-link" href="{{ path('logout_route') }}">Se déconnecter</a>
+      </li>
+      {% else %}
         <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
           <a class="nav-link" href="#">Inscription</a>
         </li>
-      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <li class="nav-item"><a class="nav-link" href="{{ path('logout_route') }}">Se déconnecter</a>
+        <li class="nav-item" data-toggle="modal" data-target="#loginForm">
+          <a class="nav-link" href="#">Connexion</a>
         </li>
-        {% else %}
-          <li class="nav-item" data-toggle="modal" data-target="#loginForm">
-            <a class="nav-link" href="#">Connexion</a>
-          </li>
       {% endif %}
-
       </ul>
     </div>
   </nav>
@@ -64,12 +66,14 @@
       <h3 class="">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
       <div class="row container box_boutons">
-        {# <span class="col-md-1"></span> #}
+        <span class="col-md-1"></span>
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageFruit" role="button">Fruits & Légumes</a>
         <span class="col-md-1"></span>
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageMois" role="button">Mois & Saisons</a>
         <span class="col-md-1"></span>
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageForum" role="button">Forum</a>
+        <span class="col-md-1"></span>
+
       </div>
     </div>
   <!-- END bloc Titre et boutons -->
