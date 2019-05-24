@@ -94,8 +94,8 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference(self::DISCUSSION_ALIMENTSSAINS, $discussion5);
         $this->addReference(self::DISCUSSION_LEMARCHE, $discussion6);
         $this->addReference(self::DISCUSSION_BARQUETTE, $discussion7);
-        $this->addReference(self::DISCUSSION_BARQUETTE, $discussion8);
-        $this->addReference(self::DISCUSSION_BARQUETTE, $discussion9);
+        $this->addReference(self::DISCUSSION_IRADIATION, $discussion8);
+        $this->addReference(self::DISCUSSION_GREENBASHING, $discussion9);
 
 
 
