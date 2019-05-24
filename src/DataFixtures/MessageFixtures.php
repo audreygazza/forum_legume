@@ -12,6 +12,8 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
     const MESSAGE_AMAP = 'msg1';
     const MESSAGE_ALERTE = 'msg2';
     const MESSAGE_DRIVE = 'msg3';
+    const MESSAGE_SUPERALIMENTS = 'msg4';
+
 
     public function load(ObjectManager $manager)
     {
@@ -39,11 +41,19 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
       ->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_DRIVE));
       $manager->persist($message3);
 
+      $message4 = new Message();
+      $message4 -> setTitle("Les superaliments ou les aliments miracles")
+     -> setContent("Avez-vous entendu parler des superaliments ? Ces aliments qui possèderaient des valeurs nutritives et qualités protectrices reconnues comme exceptionnelles ?")
+     ->setUser($this->getReference(UserFixtures::USER_REGLASS))
+     ->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_SUPERALIMENTS));
+     $manager->persist($message4);
+
         $manager->flush();
 
         $this->addReference(self::MESSAGE_AMAP, $message1);
         $this->addReference(self::MESSAGE_ALERTE, $message2);
         $this->addReference(self::MESSAGE_DRIVE, $message3);
+        $this->addReference(self::MESSAGE_SUPERALIMENTS, $message4);
     }
 
     /**
