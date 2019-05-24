@@ -12,6 +12,7 @@ class UserFixtures extends Fixture
     const USER_PABLO = 'Pablo';
     const USER_SALOME = 'Salome';
     const USER_REGLASS = 'Reglass';
+    const USER_RICO = 'Rico';
 
     private $passwordEncoder;
 
