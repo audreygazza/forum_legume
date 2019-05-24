@@ -246,6 +246,15 @@ h4{
 .carousel-indicators{
 	padding-top: 30px;
 }
+.outside{
+	margin-left: 50px;
+	padding-left: 50px;
+}
+
+.outside1{
+	margin-right: 50px;
+	padding-right: 50px;
+}
 /* PAGE FORUM */
 	.FORUM {
 		background-color: white;
