@@ -11,6 +11,9 @@ class ThemeFixtures extends Fixture
   const THEME_COEUR = 'coeur';
   const THEME_GUEULE = 'gueule';
   const THEME_PLANS = 'plans';
+  const THEME_AVIS = 'avis';
+  const THEME_CONSEILS = 'conseils';
+
 
     public function load(ObjectManager $manager)
     {
@@ -53,17 +56,17 @@ class ThemeFixtures extends Fixture
         $theme5 -> setName("Conseils & Astuces")
                 -> setDescription("Partagez ici les conseils cuisine, achat ou consommation.")
                 -> setSlug('conseil');
-                
+
 
         $manager->persist($theme5);
-
-
 
         $manager->flush();
 
         $this->addReference(self::THEME_COEUR, $theme1);
         $this->addReference(self::THEME_GUEULE, $theme2);
         $this->addReference(self::THEME_PLANS, $theme3);
+        $this->addReference(self::THEME_AVIS, $theme4);
+        $this->addReference(self::THEME_CONSEILS, $theme5);
 
     }
 }
