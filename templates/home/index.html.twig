@@ -38,19 +38,21 @@
           <a class="nav-link" href="{{ path('home')}}#lienPageForum">FORUM</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right">
+      {% if is_granted('ROLE_ADMIN') %}
+      <li><a class="nav-link" href="{{ path('admin')}}">Admin</a></li>
+      {% endif %}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <li class="nav-item"><a class="nav-link" href="{{ path('logout_route') }}">Se déconnecter</a>
+      </li>
+      {% else %}
         <li class="nav-item" data-toggle="modal" data-target="#subscribeForm">
           <a class="nav-link" href="#">Inscription</a>
         </li>
-      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <li class="nav-item"><a class="nav-link" href="{{ path('logout_route') }}">Se déconnecter</a>
+        <li class="nav-item" data-toggle="modal" data-target="#loginForm">
+          <a class="nav-link" href="#">Connexion</a>
         </li>
-        {% else %}
-          <li class="nav-item" data-toggle="modal" data-target="#loginForm">
-            <a class="nav-link" href="#">Connexion</a>
-          </li>
       {% endif %}
-
       </ul>
     </div>
   </nav>
@@ -64,12 +66,12 @@
       <h3 class="">LE BLOG DES FRUITS ET DES LÉGUMES DE SAISONS</h3>
 
       <div class="row container box_boutons">
-        {# <span class="col-md-1"></span> #}
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageFruit" role="button">Fruits & Légumes</a>
-        <span class="col-md-1"></span>
+        <span class="col-md-0 col-lg-1"></span>
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageMois" role="button">Mois & Saisons</a>
-        <span class="col-md-1"></span>
+        <span class="col-md-0 col-lg-1"></span>
         <a class="btn btn-primary main_button btn-lg col-sm-8 col-md-7 col-lg-3" href="#lienPageForum" role="button">Forum</a>
+
       </div>
     </div>
   <!-- END bloc Titre et boutons -->
@@ -189,83 +191,84 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="First slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-septembre.gif')}}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Septembre</h5>
+             <h4>Septembre</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Second slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-octobre.gif')}}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Octobre</h5>
+             <h4>Octobre</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Third slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-novembre.gif')}}" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Novembre</h5>
+             <h4>Novembre</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Fourth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-novembre.gif')}}" alt="Fourth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Decembre</h5>
+             <h4>Décembre</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Fifth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-janvier.gif')}}" alt="Fifth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Janvier</h5>
+             <h4>Janvier</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Sixth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-fevrier.gif')}}" alt="Sixth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Fevrier</h5>
+             <h4>Février</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Seventh slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-mars.gif')}}" alt="Seventh slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Mars</h5>
+             <h4>Mars</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Eighth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-avril.gif')}}" alt="Eighth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Avril</h5>
+             <h4>Avril</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Nineth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-mai.gif')}}" alt="Nineth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Mai</h5>
+             <h4>Mai</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" ssrc="{{ asset('img/slide-juin.gif')}}" alt="tenth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="tenth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Juin</h5>
+             <h4>Juin</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Eleventh slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-juillet.gif')}}" alt="Eleventh slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Juillet</h5>
+             <h4>Juillet</h4>
            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('img/slide-juin.gif')}}" alt="Twelfth slide">
+            <img class="d-block w-100" src="{{ asset('img/slide-aout.gif')}}" alt="Twelfth slide">
             <div class="carousel-caption d-none d-md-block">
-             <h5>Aout</h5>
+             <h4>Aout</h4>
            </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselMois" role="button" data-slide="prev">
+
+        <a class="carousel-control-prev outside1" href="#carouselMois" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselMois" role="button" data-slide="next">
+        <a class="carousel-control-next outside" href="#carouselMois" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -282,7 +285,7 @@
           <img src="{{ asset('img/icone-coeur.png')}}" alt="icone theme" id="icone_theme">
           <div class="texte">
           <h4>COUP D'COEUR CONSO</h4>
-          <p> Paratgez vos coups de coeur cuisine, legumes ou producteurs.</p>
+          <p> Partagez vos coups de coeur cuisine, légumes ou producteurs.</p>
           </div></a>
         </div>
 
@@ -292,7 +295,7 @@
           <div class="texte">
           <h4>COUP D'GUEULE CONSO</h4>
           <p> Vous avez reperé des
-          arnaques ou des prosuits de mauvaise qualité. Faites en part.</p>
+          arnaques ou des prosuits de mauvaise qualité. Faites-en part.</p>
           </div></a>
         </div>
 
@@ -301,7 +304,7 @@
           <img src="{{ asset('img/icone-bonplan.png')}}" alt="icone theme" id="icone_theme">
             <div class="texte">
             <h4>BONS PLANS</h4>
-            <p> Partagez ici les bons plans que vous avez repéré</p>
+            <p> Partagez ici les bons plans que vous avez repérés.</p>
             </div>
           </a>
         </div>
@@ -311,7 +314,7 @@
             <div class="texte">
             <h4>AVIS PRODUITS & MARQUES</h4>
             <p> Aidez nous a
-            consommer responsable.N’hesitez pas à partager circuit courts et trouvailles</p>
+            consommer responsable. N’hesitez pas à partager circuits courts et trouvailles.</p>
             </div></a>
         </div>
 

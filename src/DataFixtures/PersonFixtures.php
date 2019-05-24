@@ -19,19 +19,22 @@ class PersonFixtures extends Fixture implements DependentFixtureInterface
               ->setUser($this->getReference(UserFixtures::USER_PABLO));
           $manager->persist($person1);
 
-        $manager->flush();
 
           $person2 = new Person();
           $person2->setImage('')
               ->setUser($this->getReference(UserFixtures::USER_SALOME));
           $manager->persist($person2);
 
-        $manager->flush();
 
           $person3 = new Person();
           $person3->setImage('')
               ->setUser($this->getReference(UserFixtures::USER_REGLASS));
           $manager->persist($person3);
+
+          $person4 = new Person();
+          $person4->setImage('')
+              ->setUser($this->getReference(UserFixtures::USER_RICO));
+          $manager->persist($person4);
 
         $manager->flush();
     }

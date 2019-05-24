@@ -1,8 +1,31 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-  {{ form_start(register_form) }}
-  {{ form_widget(register_form) }}
-  <input type="submit" name="register" value="s'inscrire">
-  {{ form_end(register_form) }}
+<div class="box_pages">
+<h6>VEGGIZ</h6>
+  <h3>Inscription</h3>
+  <div class="container col-sm-10 col-md-6 col-lg-4">
+    {{ form_start(register_form) }}
+    {{ form_label(register_form.email, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(register_form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+
+    {{ form_label(register_form.password, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(register_form.password, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+
+    {{ form_label(register_form.pseudo, null, {'label_attr': {'class': 'sr-only'}}) }}
+    {{ form_widget(register_form.pseudo, {'attr': {'class': 'form-control', 'placeholder': 'Pseudo'}}) }}
+
+    <input class="btn btn-md btn-primary bouton_CreerDiscussion" type="submit" name="register" value="S'inscrire">
+    {{ form_end(register_form) }}
+  </div>
+</div>
+
 {% endblock %}

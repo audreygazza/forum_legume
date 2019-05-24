@@ -12,6 +12,18 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
   const DISCUSSION_AMAP = 'disc1';
   const DISCUSSION_ALERTE = 'disc2';
   const DISCUSSION_DRIVE = 'disc3';
+  const DISCUSSION_SUPERALIMENTS = 'disc4';
+  const DISCUSSION_ALIMENTSSAINS = 'disc5';
+  const DISCUSSION_LEMARCHE = 'disc6';
+  const DISCUSSION_BARQUETTE = 'disc7';
+  const DISCUSSION_RADIATION = 'disc8';
+  const DISCUSSION_GREENBASHING = 'disc9';
+
+
+
+
+
+
 
     public function load(ObjectManager $manager)
     {
@@ -36,11 +48,60 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
 
         $manager->persist($discussion3);
 
+        $discussion4 = new Discussion();
+        $discussion4->setTitle("Les superaliments ou les aliments miracles")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_COEUR));
+
+        $manager->persist($discussion4);
+
+        $discussion5 = new Discussion();
+        $discussion5->setTitle("Aliments sains")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_COEUR));
+
+        $manager->persist($discussion5);
+
+        $discussion6 = new Discussion();
+        $discussion6->setTitle("Les marchés")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_CONSEILS));
+
+        $manager->persist($discussion6);
+
+        $discussion7 = new Discussion();
+        $discussion7->setTitle("les fruits en barquette du supermarché")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_GUEULE));
+
+        $manager->persist($discussion7);
+
+        $discussion8 = new Discussion();
+        $discussion8->setTitle("Des Fruits irradiés en supermarché")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_GUEULE));
+
+        $manager->persist($discussion8);
+
+        $discussion9 = new Discussion();
+        $discussion9->setTitle("Les faux labels bio ou le greenbashing")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_AVIS));
+
+        $manager->persist($discussion9);
+
+
         $manager->flush();
 
         $this->addReference(self::DISCUSSION_AMAP, $discussion1);
         $this->addReference(self::DISCUSSION_ALERTE, $discussion2);
         $this->addReference(self::DISCUSSION_DRIVE, $discussion3);
+        $this->addReference(self::DISCUSSION_SUPERALIMENTS, $discussion4);
+        $this->addReference(self::DISCUSSION_ALIMENTSSAINS, $discussion5);
+        $this->addReference(self::DISCUSSION_LEMARCHE, $discussion6);
+        $this->addReference(self::DISCUSSION_BARQUETTE, $discussion7);
+        $this->addReference(self::DISCUSSION_RADIATION, $discussion8);
+        $this->addReference(self::DISCUSSION_GREENBASHING, $discussion9);
+
+
+
+
+
+
 
     }
 

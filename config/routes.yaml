@@ -11,6 +11,118 @@ abricot:
     template: static/abricot.html.twig
   methods: GET
 
+artichaut:
+  path:         /artichaut
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/artichaut.html.twig
+  methods: GET
+
+figue:
+  path:         /figue
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/figue.html.twig
+  methods: GET
+
+melon:
+  path:         /melon
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/melon.html.twig
+  methods: GET
+
+poivron:
+  path:         / poivron
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/ poivron.html.twig
+  methods: GET
+
+fraise:
+  path:         /fraise
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/fraise.html.twig
+  methods: GET
+
+epinard:
+  path:         /epinard
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/epinard.html.twig
+  methods: GET
+
+tomate:
+  path:         /tomate
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/tomate.html.twig
+  methods: GET
+
+citron:
+  path:         /citron
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/citron.html.twig
+  methods: GET
+
+pasteque:
+  path:         /pasteque
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/pasteque.html.twig
+  methods: GET
+
+carotte:
+  path:         /carotte
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/carotte.html.twig
+  methods: GET
+
+oignon:
+  path:         /oignon
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/oignon.html.twig
+  methods: GET
+
+cerise:
+  path:         /cerise
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/cerise.html.twig
+  methods: GET
+
+courgette:
+  path:         /courgette
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/courgette.html.twig
+  methods: GET
+
+radis:
+  path:         /radis
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/radis.html.twig
+  methods: GET
+
+broccoli:
+  path:         /broccoli
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/broccoli.html.twig
+  methods: GET
+
+framboise:
+  path:         /framboise
+  controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: static/framboise.html.twig
+  methods: GET
+
 eric:
   path:         /eric
   controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
