@@ -241,7 +241,20 @@ h4{
   text-align: center;
   font-size: 25px;
 }
-
+.soustitre_contenu{
+	text-decoration: underline #79f481;
+}
+.img_contenu{
+	width: 100%;
+	margin-bottom: 40px;
+}
+.txt_contenu{
+	text-align: justify;
+	margin: 10px auto;
+}
+.espace_paragraphe{
+	margin-bottom: 10px;
+}
 /* PAGE MOIS&SAISONS */
 .carousel-indicators{
 	padding-top: 30px;
