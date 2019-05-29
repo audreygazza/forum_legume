@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abricot{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="box_pages">
+  <h6>VEGGIZ</h6>
+    <h3>Abricot</h3>
+    <div class="container col-sm-10 col-md-8 col-lg-6">
+    <img class="img_contenu" src="{{ asset('img/abricot.jpg') }}" alt=""><br>
+      <h4 class="soustitre_contenu">Les bienfaits et vertus santé des abricots</h4><br>
+      <p class="txt_contenu">Savoureux et gorgé de soleil, l’abricot est un fruit populaire. Reconnu pour ses bienfaits santé, il est aussi peu calorique, plein de fibres et de potassium, faisant de ce fruit un précieux allié pour notre santé. Pour faire le plein d’énergie ou inclure plus de fruits dans votre assiette, n’hésitez pas à consommer régulièrement des abricots frais ou secs.<br class="espace_paragraphe">
+      L’abricot renferme également de nombreux minéraux, en particulier du potassium, favorisant le bon fonctionnement neuromusculaire, et du fer, indispensable à la formation des globules rouges.</p><br>
+
+      <h4 class="soustitre_contenu">Un fruit peu calorique lorsque consommé frais</h4><br>
+      <p class="txt_contenu">Sucré et digeste, ce fruit savoureux est pourtant faible en calories (environ 50 kcal pour 2 abricots).<br class="espace_paragraphe">
+
+Sa couleur jaune orangé est due à la présence de pigments caroténoïdes, notamment de bêtacarotène, important antioxydant qui intervient dans la lutte contre les radicaux libres.<br class="espace_paragraphe">
+
+Ses fibres sont constituées en grande partie de pectine, bien tolérée par les intestins et qui aide à faire baisser le taux du « mauvais » cholestérol (LDL).<br class="espace_paragraphe">
+
+On y trouve aussi des vitamines A, B et un peu de vitamine C (7 mg pour 100 g).<br class="espace_paragraphe">
+
+À noter qu’un salicylate naturel présent dans les abricots peut déclencher une réaction allergique chez des sujets sensibles à l’aspirine.</p><br>
+
+      <h4 class="soustitre_contenu">Vertus de l’abricot chez la femme enceinte</h4><br>
+      <p class="txt_contenu">Riche en vitamine A, l’abricot favorise largement la croissance des cellules dans le corps et aide à renforcer le fonctionnement du système immunitaire chez la femme enceinte. Plein de vitamines, il encourage le bon développement du fœtus.</p><br>
+
+      <h4 class="soustitre_contenu">Les abricots secs, une collation de choix chez les sportifs</h4><br>
+      <p class="txt_contenu">On apprécie notamment ce fruit pour sa saveur et son moelleux, mais aussi parce qu’ils représentent de bonnes sources d’énergie facilement disponible, de minéraux et de fibres. Leur apport calorique s’élève ainsi à 230 kcal pour 100 g (de 20 à 25 abricots secs) et leur teneur en potassium dépasse 2500 mg. L’abricot sec est un aliment recommandé aux sportifs; car il fournit les nutriments nécessaires aux muscles pendant l’effort. Consommé avant une compétition, il contribue à la recharge minérale et apporte un concentré de glucides au corps.</p><br>
+
+      <h4 class="soustitre_contenu">Attention aux agents de conservation et autres effets secondaires liés à la consommation d’abricots secs</h4><br>
+      <p class="txt_contenu">Les abricots sont souvent traités à l’anhydride sulfureux pour conserver leur couleur et certains nutriments, ce qui peut déclencher des réactions allergiques chez les sujets sensibles.<br> Les personnes asthmatiques, en particulier, devraient toujours bien lire la liste des ingrédients pour s’assurer que les abricots secs qu’elles consomment ne contiennent pas de sulfites.</p><br>
+
+    </div>
+</div>
+
+{% endblock %}
