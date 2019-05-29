@@ -18,6 +18,12 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
   const DISCUSSION_BARQUETTE = 'disc7';
   const DISCUSSION_RADIATION = 'disc8';
   const DISCUSSION_GREENBASHING = 'disc9';
+  const DISCUSSION_ZERODECHET = 'disc10';
+  const DISCUSSION_MARQUESETHIC = 'disc11';
+  const DISCUSSION_TAWASHI = 'disc12';
+
+
+
 
 
 
@@ -84,6 +90,23 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
 
         $manager->persist($discussion9);
 
+        $discussion10 = new Discussion();
+        $discussion10->setTitle("Les Boutiques Zero Dechet")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_PLANS));
+
+        $manager->persist($discussion10);
+
+        $discussion11 = new Discussion();
+        $discussion11->setTitle("Marques de nourriture ethic en supermarche ? ")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_AVIS));
+
+        $manager->persist($discussion11);
+
+        $discussion12 = new Discussion();
+        $discussion12->setTitle("Les tawashi ou les éponges maison 0dechet ")
+          ->setTheme($this->getReference(ThemeFixtures::THEME_CONSEILS));
+
+        $manager->persist($discussion12);
 
         $manager->flush();
 
@@ -96,6 +119,10 @@ class DiscussionFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference(self::DISCUSSION_BARQUETTE, $discussion7);
         $this->addReference(self::DISCUSSION_RADIATION, $discussion8);
         $this->addReference(self::DISCUSSION_GREENBASHING, $discussion9);
+        $this->addReference(self::DISCUSSION_ZERODECHET, $discussion10);
+        $this->addReference(self::DISCUSSION_MARQUESETHIC, $discussion11);
+        $this->addReference(self::DISCUSSION_TAWASHI, $discussion12);
+
 
 
 

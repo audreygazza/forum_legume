@@ -18,6 +18,12 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
     const MESSAGE_BARQUETTE = 'msg7';
     const MESSAGE_RADIATION = 'msg8';
     const MESSAGE_GREENBASHING = 'msg9';
+    const MESSAGE_ZERODECHET = 'msg10';
+    const MESSAGE_MARQUESETHIC = 'msg11';
+    const MESSAGE_TAWASHI = 'msg12';
+
+
+
 
 
 
@@ -91,6 +97,27 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
 ->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_GREENBASHING));
 $manager->persist($message9);
 
+$message10 = new Message();
+$message10 -> setTitle(" Les Boutiques Zero Dechet")
+ -> setContent(" Coucou la population ! Un petit message pour mettre en avant ma dernière découverte à Strasbourg, une boutique zero dechet en plein coeur de la Krutenau. C'est le BOCAL, la gérante est adorable et le concept est génial. Le but réduire la quantité de déchet inutile et aquierir des produits ethiques et de qualités ! Bref je suis satisfaite, je peux consommer de manière responssable très facilement.")
+->setUser($this->getReference(UserFixtures::USER_REGLASS))
+->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_ZERODECHET));
+$manager->persist($message10);
+
+$message11 = new Message();
+$message11 -> setTitle(" Des marques de nourriture ethic")
+ -> setContent(" Hey :) Je suis en train de changer ma facon de consommer, j'aimerai consommer en respect des prodcteurs et de la terre. Connaissez vous des marques de food ethic et facile à trouver ? Voila après mon budjet n'est pas non plus très élevé...  ")
+->setUser($this->getReference(UserFixtures::USER_PABLO))
+->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_MARQUESETHIC));
+$manager->persist($message11);
+
+$message12 = new Message();
+$message12 -> setTitle(" Des éponges maison : les TAWASHI !")
+ -> setContent(" Coucou voici ma dernière découverte : les tawashi ! C'est génial ! Le tawashi est une éponge zéro déchet qu'on fabrique avec du tissu de récup. On s'en sert pour faire la vaisselle, laver la table ... C'est facile à faire et ca passe à la machine à laver ! Vous avez juste besoin de vieux vetements ou de tissu de reccup. Voila le lien du tuto : 'https://www.youtube.com/watch?v=JkhjI7srH_8' ")
+->setUser($this->getReference(UserFixtures::USER_SALOME))
+->setdiscussion($this->getReference(DiscussionFixtures::DISCUSSION_TAWASHI));
+$manager->persist($message12);
+
         $manager->flush();
 
         $this->addReference(self::MESSAGE_AMAP, $message1);
@@ -102,6 +129,10 @@ $manager->persist($message9);
         $this->addReference(self::MESSAGE_BARQUETTE, $message7);
         $this->addReference(self::MESSAGE_RADIATION, $message8);
         $this->addReference(self::MESSAGE_GREENBASHING, $message9);
+        $this->addReference(self::MESSAGE_ZERODECHET, $message10);
+        $this->addReference(self::MESSAGE_MARQUESETHIC, $message11);
+
+
 
 
 
